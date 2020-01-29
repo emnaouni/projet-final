@@ -32,7 +32,7 @@ router.post("/", [
     if (!errors.isEmpty()) {
         return res.send({ errors: errors.array() })
     }
-    const { Nom, Role,Prenom, Email, password } = req.body;
+    const {Nom,Role,Prenom,Email,password} = req.body;
     Personne.findOne({ Email })
         .then(user => {
             if (user) {
