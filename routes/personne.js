@@ -47,7 +47,8 @@ router.post("/", [
                         newPersonne.save()
                         const payload = {
                             personne: {
-                                id: newPersonne.id
+                                id: newPersonne.id,
+                                role: newPersonne.Role
                             }
                         }
                         jwt.sign(payload, jwtSecrect, { expiresIn: 3600000 }, (err, token) => {

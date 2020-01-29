@@ -1,11 +1,13 @@
 const express = require("express");
 const router = express.Router();
+
 const dossierMedical = require("../models/DossierMedical");
 
 
 //Get all dossiermedical
 router.get("/", (req, res) => {
     dossierMedical.find({})
+
         .then(data => {
             if (!data) {
                 res.json("not found")
@@ -17,6 +19,7 @@ router.get("/", (req, res) => {
 
         .catch(err => console.log(err.message))
 })
+
 
 // Add dossiermedical
 router.post("/", (req, res) => {
@@ -33,12 +36,14 @@ router.post("/", (req, res) => {
 //delete DossierMedical
 router.delete("/:id", (req, res) => {
     dossierMedical.findByIdAndDelete(req.params.id)
-        .then(() => dossierMedical.find({})
+        .then(() => dossierMedical.find()
+
             .then(data => res.json(data))
         )
         .catch(err => console.log(err.message))
 
 });
+
 
 
 //Update DossierMedical
@@ -46,11 +51,11 @@ router.put("/:id", (req, res) => {
     const des = req.body
     dossierMedical.findByIdAndUpdate(req.params.id, des)
         .then(() => dossierMedical.findById(req.params.id)
+
             .then(data => res.json(data))
         )
         .catch(err => console.log(err.message))
 
 });
-
 
 module.exports = router
