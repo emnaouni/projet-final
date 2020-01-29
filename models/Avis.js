@@ -14,8 +14,9 @@ const AVISchema = mongoose.Schema({
     required: true
   },
   date: {
-    type: String
+    type: String,
+    default : Date.now()
   }
 });
 
-module.exports = mongoose.model("Avis", AVISchema);
+module.exports =Avis = mongoose.model("Avis", AVISchema);
