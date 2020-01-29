@@ -24,6 +24,9 @@ app.use('/auth',require("./routes/auth"))
 app.use('/avis',require('./routes/avis'))
 
 
+app.use('/dossiermedical',require('./routes/dossiermedical'))
+
+
 
 app.listen( 5000, ()=>{
 console.log("Server is running on port 5000") 
