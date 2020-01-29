@@ -18,6 +18,10 @@ const mongoURI =
 app.use("/medicaments", require('./routes/medicaments'));
 app.use("/analyses", require('./routes/analyses'));
 app.use("/rdv", require('./routes/rdv'));
+app.use('/personne',require('./routes/personne'))
+
+
+
 app.listen( 5000, ()=>{
 console.log("Server is running on port 5000") 
 })
