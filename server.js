@@ -19,6 +19,7 @@ app.use("/medicaments", require('./routes/medicaments'));
 app.use("/analyses", require('./routes/analyses'));
 app.use("/rdv", require('./routes/rdv'));
 app.use('/personne',require('./routes/personne'))
+app.use('/maladies',require('./routes/maladies'))
 
 
 
