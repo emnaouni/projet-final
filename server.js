@@ -22,6 +22,9 @@ app.use('/personne',require('./routes/personne'))
 app.use('/maladies',require('./routes/maladies'))
 
 
+app.use('/dossiermedical',require('./routes/dossiermedical'))
+
+
 
 app.listen( 5000, ()=>{
 console.log("Server is running on port 5000") 
