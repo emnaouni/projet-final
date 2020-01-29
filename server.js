@@ -21,6 +21,7 @@ app.use("/rdv", require('./routes/rdv'));
 app.use('/personne',require('./routes/personne'))
 app.use('/maladies',require('./routes/maladies'))
 app.use('/auth',require("./routes/auth"))
+app.use('/avis',require('./routes/avis'))
 
 
 
