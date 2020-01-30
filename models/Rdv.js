@@ -9,9 +9,17 @@ const RDVSchema = mongoose.Schema({
     type: String,
     required: true
   },
-  PattId: {
-    type: String,
+  confirmation: {
+    type: Boolean,
     required: true
+  },
+  suggestion: {
+    type: Boolean,
+    required: true
+  },
+  patient: {
+    type: mongoose.Schema.Types.ObjectId,
+     ref:"personnes"
   },
   date: {
     type: String

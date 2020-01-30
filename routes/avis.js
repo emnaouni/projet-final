@@ -16,6 +16,7 @@ router.get("/:id", (req, res) => {
 
         .catch(err => console.log(err.message))
 })
+
 router.post("/", (req, res) => {
     const { comentaire,Medecin_id,Patient_id } = req.body;
     let newAvis = new Avis({
@@ -28,6 +29,7 @@ router.post("/", (req, res) => {
       .then(data => res.json(data))
       .catch(err => console.log(err.message));
   });
+
   router.delete("/:id", (req, res) => {
     Avis.findByIdAndDelete(req.params.id)
       .then(data => {
@@ -40,6 +42,7 @@ router.post("/", (req, res) => {
       })
       .catch(err => console.error(err.message));
   });
+
   router.put("/:id", (req, res)=>{
     const avis=req.body
 Avis.findByIdAndUpdate(req.params.id ,avis)
