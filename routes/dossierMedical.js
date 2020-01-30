@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const dossierMedical = require("../models/DossierMedical");
 
 
-//Get dossier medical patient
+//Get dossiermedical medecin
 router.get("/:id", (req, res) => {
     dossierMedical.find({ Id_Patient:req.params.id})
 
@@ -20,6 +20,9 @@ router.get("/:id", (req, res) => {
         .catch(err => console.log(err.message))
 })
 
+//Get All Cons byDoctor
+
+//Get DossierMedical patient by token
 
 // Add dossiermedical
 router.post("/", (req, res) => {
