@@ -14,7 +14,7 @@ module.exports= function(req,res,next){
             res.json({msg:'token not valid!'})
         }
 
-        req.user =decoded.user
+        req.user = decoded.personne
         next()
     })
 }

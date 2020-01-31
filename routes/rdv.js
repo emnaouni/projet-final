@@ -59,8 +59,8 @@ router.post("/", [auth, [
 
 //delete Rdv
 router.delete("/:id", (req, res) => {
-    Analyses.findByIdAndDelete(req.params.id)
-        .then(() => Analyses.find({})
+    Rdv.findByIdAndDelete(req.params.id)
+        .then(() => Rdv.find({})
             .then(data => res.json(data))
         )
         .catch(err => console.log(err.message))
@@ -68,13 +68,12 @@ router.delete("/:id", (req, res) => {
 });
 
 
-//Update analsyse
-router.put("/:id", (req, res) => {
-    const rdv = req.body
-    Analyses.findByIdAndUpdate(req.params.id, rdv)
-        .then(() => Rdv.findById(req.params.id)
-            .then(data => res.json(data))
-        )
+//Update Rdv(confirmation/suggestion)
+router.put("/", auth,(req, res) => {
+    const {confirm , _id} = req.body
+    Rdv.findByIdAndUpdate({_id },{$set:{confirmation:confirm}})
+        .then(() =>  res.json("RDV confirmé"))
+        
         .catch(err => console.log(err.message))
 
 });

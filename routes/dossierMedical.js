@@ -4,7 +4,7 @@ const auth = require('../middleware/auth')
 const dossierMedical = require("../models/DossierMedical");
 
 
-//Get dossier medical patient
+//Get dossier medical patient for doctor
 router.get("/:id", (req, res) => {
     dossierMedical.find({ Id_Patient:req.params.id})
 
@@ -22,10 +22,13 @@ router.get("/:id", (req, res) => {
 
 
 // Add dossiermedical
-router.post("/", (req, res) => {
+router.post("/", auth,(req, res) => {
     const {Id_Maladie,Id_Medicament,Id_Analyse,Id_Patient} = req.body;
     let newDossier = new dossierMedical({
-        Id_Maladie,Id_Medicament,Id_Analyse,Id_Patient
+        Id_Maladie,
+        Id_Medicament,
+        Id_Analyse,
+        Id_Patient: req.user.id
     });
     newDossier
       .save()
