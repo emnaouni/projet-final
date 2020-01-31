@@ -2,15 +2,38 @@ const express = require("express");
 const router = express.Router();
 const auth = require('../middleware/auth')
 const dossierMedical = require("../models/DossierMedical");
+const mongoose = require('mongoose')
+
+const Visite = require("../models/visite");
+
+//Get DossierMedical patient by token
+
+router.get("/patient", auth, (req, res) => {
+    let id = mongoose.Types.ObjectId(req.user.id)
+    console.log(req.user.id)
+    dossierMedical.findOne({Id_Patient: id })
+        .then(data => {
+            if (!data) {
+                res.json("user not found")
+            }
+            else {
+                res.json(data)
+
+                // Visite.find({Id_DossierMedical: data._id})
+                //     .then(dossier => console.log(dossier))
+            }
+        })
+        .catch(err => console.log(err.message))
+})
 
 
-//Get dossier medical patient
-router.get("/:id", (req, res) => {
-    dossierMedical.find({ Id_Patient:req.params.id})
+//Get dossiermedical medecin
+router.get("/patient/:id", (req, res) => {
+    dossierMedical.findOne({ Id_Patient:req.params.id})
 
         .then(data => {
             if (!data) {
-                res.json("not found")
+                res.json("not found !!!!!!!!!!!!!")
             }
             else {
                 res.json(data)
@@ -20,12 +43,19 @@ router.get("/:id", (req, res) => {
         .catch(err => console.log(err.message))
 })
 
+//Get All Cons byDoctor
+
+
+
 
 // Add dossiermedical
-router.post("/", (req, res) => {
+router.post("/", auth,(req, res) => {
     const {Id_Maladie,Id_Medicament,Id_Analyse,Id_Patient} = req.body;
     let newDossier = new dossierMedical({
-        Id_Maladie,Id_Medicament,Id_Analyse,Id_Patient
+        Id_Maladie,
+        Id_Medicament,
+        Id_Analyse,
+        Id_Patient: req.user.id
     });
     newDossier
       .save()
