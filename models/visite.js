@@ -1,29 +1,29 @@
 const mongoose = require("mongoose");
 
-const DossierMedicalSchema = mongoose.Schema({
-  Id_Patient: {
+const visiteSchema = mongoose.Schema({
+  Id_DossierMedical: {
     type: mongoose.Schema.Types.ObjectId,
-    ref:"personnes"
+    ref:"dossiermedicals"
     // type: String,
-    // required: true
-  },
-  Id_Maladie: {
-    type: String,
     // required: true
   },
   Id_Medicament: {
     type: String,
     // required: true
   },
-  Id_Analyse: {
+  date: {
+    type: Date,
+    default :Date.now
+  },
+  Remarque: {
     type: String,
     // required: true
   },
-  Id_Patient: {
+  medecin: {
     type: mongoose.Schema.Types.ObjectId,
-    ref: "personnes"
-  }
- 
-}); 
+     ref:"personnes"
+  },
 
-module.exports = mongoose.model("dossiermedical", DossierMedicalSchema);
+});
+
+module.exports = mongoose.model("visite", visiteSchema);
