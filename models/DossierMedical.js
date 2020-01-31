@@ -18,6 +18,6 @@ const DossierMedicalSchema = mongoose.Schema({
     required: true
   }
  
-});
+}); 
 
 module.exports = mongoose.model("dossiermedical", DossierMedicalSchema);
