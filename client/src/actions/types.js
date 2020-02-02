@@ -1,0 +1,1 @@
+export const GET_MEDECINS='GET_MEDECINS'
