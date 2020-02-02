@@ -2,7 +2,9 @@ import React, { Component } from 'react';
 import {connect} from "react-redux"
 import {getmedecins} from "../../actions/medicinActions"
 
-export class Medecin extends Component {
+class Medecin extends Component {
+
+    
     componentDidMount() {
         this.props.getmedecins(); 
          console.log('hiii medecin')
@@ -11,9 +13,9 @@ export class Medecin extends Component {
     render() {
         return (
             <div className="DoctorsList"> {  console.log('hiii')}
-               { this.props.alldoctors.medecins.map(el=>(
+               { this.props.alldoctors.medecins.map( el=>(
                     
-                   <div>
+                   <div className="doctorItem">
                        <p>nom</p>{el.Nom}
                        <p>Prenom</p>{el.Prenom}
                        <p>Email</p> {el.Email}
@@ -23,8 +25,8 @@ export class Medecin extends Component {
             </div>
         );
     }
-}
 
+}
 const MapStateToProps= state=>{
     return {
         alldoctors: state.medecinReducer
