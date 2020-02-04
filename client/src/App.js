@@ -1,11 +1,11 @@
 import React from 'react';
-import Medecin from './components/medecin/Medecin'
+// import Medecin from './components/medecin/Medecin'
+import Home from "./components/Home/Home"
 
 function App() {
   return (
     <div className="App">
-    liste medecins:<Medecin/>
-
+    <Home/>
     </div>
   );
 }
