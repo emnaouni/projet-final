@@ -1,0 +1,19 @@
+
+a {
+    color: rgb(255, 255, 255)!important;
+    font-size: x-large;
+}
+.navbar-expand {
+    justify-content: space-around !important;
+    align-items: baseline;
+    /* position: fixed; */
+    width: 100%;
+    margin-top: 0;
+}
+.navbar-brand{
+    margin: 0 !important;
+    padding: 1.5rem 1rem;
+}
+.Navbar {
+    position: relative;
+}

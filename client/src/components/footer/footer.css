@@ -1,0 +1,18 @@
+#Footer-section{
+    background-color: #32afff !important;
+    color: rgba(255,255,255,.6);
+}
+
+.sidebar-header{
+font-size: 20px;
+font-weight: 700;
+color: white;
+font-family: 'Comfortaa',sans-serif;
+
+}
+.sidebar-header a{
+    color: #fff;
+    font-family: 'Roboto', sans-serif;
+    text-decoration: none;
+    transition: color 0.2s;
+}
