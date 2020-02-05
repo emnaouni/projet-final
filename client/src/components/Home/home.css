@@ -1,0 +1,43 @@
+.Section-navBar{
+    background-image: url('https://i.ibb.co/tBhsQY0/light.png');
+    background-repeat: no-repeat;
+    background-color: #32afff!important;
+}
+h1{ color: #fff;
+    font-size: 26px;
+    text-align: center;
+    font-weight: 100;
+    margin-bottom: 12px;
+    font-family: 'Comfortaa',monospace;
+
+}
+.intro{
+    display: flex;
+    width: 22%;
+    top: 28%;
+    padding: 23px;
+    margin: auto;
+    position: absolute;
+    left: 40%;
+
+}
+.intoGeneral{
+    padding-top: 13px;
+    padding-bottom: 75px;
+    position: relative;
+
+}
+.doc{
+    width: 100px;
+}
+.chrono{
+    position: relative;
+    left: 39%;
+    opacity: 10%;
+}
+.introParag{
+    font-family: cursive;
+    margin: 0;
+    font-size: 16px;
+    font-weight: bold;
+}

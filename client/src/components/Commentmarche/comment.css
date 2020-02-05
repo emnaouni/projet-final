@@ -1,0 +1,75 @@
+.commentMarche{
+    width:100% ;
+    background-color:white;
+}
+    h3{
+        text-align: center;
+        text-transform: uppercase;
+        color: rgb(12, 12, 12);
+        font-size: 42px;
+        margin-top: 68px;
+        margin-bottom: 74px;
+        font-family: "dokregular";
+    }
+
+    .boxs{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        margin-right: -15px;
+        margin-left: -15px;
+        margin-bottom: 7%;
+    
+    }
+  .info-box-guide1-hover-image {
+     
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+     .info-box-guide1{
+        position: relative;
+        display: inline-block;
+     }
+   
+    .info-box-guide1:hover .info-box-guide1-hover-image{
+        display: inline;
+    }
+
+
+    .info-box-guide2-hover-image {
+     
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+     .info-box-guide2{
+        position: relative;
+        display: inline-block;
+     }
+   
+    .info-box-guide2:hover .info-box-guide2-hover-image{
+        display: inline;
+    }
+
+
+    .info-box-guide3-hover-image {
+     
+        display: none;
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: 99;
+    }
+     .info-box-guide3{
+        position: relative;
+        display: inline-block;
+     }
+   
+    .info-box-guide3:hover .info-box-guide3-hover-image{
+        display: inline;
+    }
