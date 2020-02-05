@@ -16,7 +16,8 @@ ReactDOM.render(
     <BrowserRouter>
     <Route exact path="/personne/medecin" component={Medecin}/>
     <Route exact path="/" component={Compte}/>
-    <Route exact path="/Register" component={Register}/>
+    <Route exact path="/Register/medecin" component={Register}/>
+
 
 
     
