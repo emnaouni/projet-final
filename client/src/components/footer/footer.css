@@ -1,18 +1,36 @@
 #Footer-section{
     background-color: #32afff !important;
     color: rgba(255,255,255,.6);
+    display: flex;
+    justify-content: space-around;
 }
 
 .sidebar-header{
-font-size: 20px;
-font-weight: 700;
-color: white;
-font-family: 'Comfortaa',sans-serif;
+    font-size: 20px;
+    font-weight: 700;
+    color: white;
+    font-family: 'Comfortaa',sans-serif!important;
+    text-align: left;
+    padding: 0;
+    margin: 0px 12px 16px 0px;
+    text-transform: capitalize
 
 }
-.sidebar-header a{
-    color: #fff;
+#subsection a{
     font-family: 'Roboto', sans-serif;
     text-decoration: none;
     transition: color 0.2s;
+    font-size: medium!important;
 }
+.Presentation ,.Login ,.Offres , .Social-media{
+    padding: 50px;
+}
+.List-SocialMedia{
+    list-style: none;
+    padding-left: 0px;
+    display: flex;
+
+}
+ .item-socialmedia{
+    padding: 0px 8px 9px 7px;
+ }

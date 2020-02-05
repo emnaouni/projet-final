@@ -8,7 +8,7 @@ const Nabar = () => {
   
    return (
      <Navbar className="primary" variant="dark">
-      <Nav.Link href="#home">Vous etes un medecin?</Nav.Link>
+      <Nav.Link href="#home">Vous êtes un medecin?</Nav.Link>
      <Navbar.Brand href="#home"><img src={logo} alt="logo"/></Navbar.Brand>
      <Nav.Link href="#home">Mon compte</Nav.Link> 
    

@@ -13,7 +13,7 @@ const Home = () => {
        <section className="Section-navBar">
              <Nabar/>
            <div className="intoGeneral">
-               <h1>Besoin d'un professionel de santé?</h1>
+               <h1 className="BesoinIntro">Besoin d'un professionel de santé?</h1>
                <img  className="chrono"src={chrono}/>
            <div className="intro">
                <p className='introParag'>Avec E-santé, trouvez et prenez rendez-vous avec un médecin, un dentiste, un spécialiste tout de suite.</p>

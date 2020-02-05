@@ -2,14 +2,14 @@
     width:100% ;
     background-color:white;
 }
-    h3{
+    .HowDoes{
         text-align: center;
-        text-transform: uppercase;
+        /* text-transform: uppercase; */
         color: rgb(12, 12, 12);
         font-size: 42px;
         margin-top: 68px;
         margin-bottom: 74px;
-        font-family: "dokregular";
+        /* font-family: "dokregular"; */
     }
 
     .boxs{

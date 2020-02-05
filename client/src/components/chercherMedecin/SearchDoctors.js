@@ -6,7 +6,7 @@ const SearchDoctors = () => {
      <div className="docc"> <img src={medecin} style={{width:"40%"}}/><label className="medecinlab">Médecin</label></div>  
     <form id="searchdoctor" >
           <div className="searchName" >
-              <input type="text" name="doctorName" placeholder="Nom du professionnel de santé" value="" />
+              <input className="name-doc" type="text" name="doctorName" placeholder="Nom du professionnel de santé" value="" />
           </div>
           <select name="field_speciality" className="SpecialiteSelect" >
                                 <optgroup value="0" label="">

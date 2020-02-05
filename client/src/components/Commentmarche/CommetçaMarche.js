@@ -10,7 +10,7 @@ import './comment.css'
 const CommetçaMarche = () => {
     return (<section className="commentMarche" >
                 <div className="container" id="info-row">
-                    <h3 data-text="How does it work?">Comment ça marche ?</h3>
+                    <h3 className="HowDoes">Comment ça marche ?</h3>
                     <div className="boxs">
                         <div className="info-box-guide1">
                             <img src={guide1} className="info-box-guide1-image"/>
