@@ -4,10 +4,11 @@
     
     
 }
+
 .compte{
     border: solid;
     width: 35%;
-    height: 650px;
+    height: 850px;
     padding: 50px;
     background-color: #32afff;
     text-align: center;
@@ -15,6 +16,10 @@
     font-size: large;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     border-radius: 30px;
+}
+.text-comp{
+    color: white;
+    font-family: Arial, Helvetica, sans-serif;;
 }
 .cree{
     border: solid 1px white;
@@ -33,24 +38,39 @@
     color: gray;
     font-size: large;
     font-family: Georgia, 'Times New Roman', Times, serif;
+    width: 50%;
 }
 .tout{
     color: #32afff;
-    width: 80%;
+    width: 70%;
+    margin : 0 auto;
     text-align: center;
-    margin-top: 100px;
+    margin-top: 60px;
     margin-bottom: 40px;
     font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
+
 .inp{
     border: solid 1px ;
     border-radius: 6px;
     height: 40px;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     color: gray;
+}
+.RadioButtonsGroup-formControl-149 {
+    margin: 0px !important;
 }
 .souhait{
     margin-top: 40px;
+}
+.gender{
+    display: flex;
+    align-items: center;
+    height: 60px;
+}
+.StepperButtons{
+    display: flex;
+    justify-content: center;
 }
 .confirm{
     color:white;
@@ -63,4 +83,54 @@
     margin-top: 40px;
     margin-right: 20px;
 
+}
+
+.inscri-doc{
+    font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+    font-size: large;
+    color: black;
+}
+.votr-nem{
+    color: #32afff!important;
+    text-align: center;
+    font-size: x-large!important;
+}
+.conf-btn{
+    background-color:#32afff ;
+    border: solid 1px #32afff;
+    border-radius: 6px;
+    height: 40px;
+    margin: 20px;
+    color: white !important;
+    width: 120px;
+}
+.list-password{
+    color: gray;
+}
+.compte-patient{
+    border: solid;
+    width: 35%;
+    height: 850px;
+    padding: 50px;
+    background-color: #1dcf8b;
+    text-align: center;
+    color: white;
+    font-size: large;
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    border-radius: 30px;
+}
+.tout-patient{
+  color: #1dcf8b;  
+  width: 70%;
+  margin : 0 auto;
+  text-align: center;
+  margin-top: 60px;
+  margin-bottom: 40px;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+
+}
+.votr-pat{
+    color: #1dcf8b;
+    text-align: center;
+    font-size: x-large!important;
 }

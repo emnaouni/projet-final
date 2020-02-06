@@ -11,6 +11,7 @@ import Compte from './components/medecin/Compte';
 import Register from './components/medecin/Register';
 import Home from './components/Home/Home'
 import  Alert  from './components/Alert/Alert';
+import RegisterPatient from './components/medecin/RegisterPateint'
 
 
 ReactDOM.render(
@@ -22,6 +23,10 @@ ReactDOM.render(
     <Route exact path='/Login/medecin' component={Compte}/>
     <Route exact path='/Login/patient' component={Compte}/>
     <Route exact path="/Register" component={Register}/>
+    <Route exact path="/personne/medecin" component={Medecin}/>
+    <Route exact path="/" component={Compte}/>
+    <Route exact path="/Register/medecin" component={Register}/>
+    <Route exact path="/Register/patient" component={RegisterPatient}/>
     
     </BrowserRouter>
     </Provider>
