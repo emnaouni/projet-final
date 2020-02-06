@@ -17,11 +17,11 @@ class Medecin extends Component {
             
                 {this.props.alldoctors.medecins.map(el => (
                     <div className="doctorCard">
+                        
                         <div className="doctorItem">
-                            <h3>{el.Nom} {el.Prenom}</h3>
-                           
+                        <img className="img-doc" src="https://santebd.org/wp-content/uploads/2018/12/Docteur.png" alt="new"/>
+                            <h2 >{el.Nom} {el.Prenom}</h2>
                             <p className="specialit">{el.Role} {el.Specialite}</p>
-                            
                             <p className="mail">Email:{el.Email}</p>
                             <p>{el.AdresseCabinet}</p>
                         </div>

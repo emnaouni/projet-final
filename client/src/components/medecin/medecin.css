@@ -3,8 +3,8 @@
     font-size: x-large;
     text-align: left;
     padding-left: 250px;
-    padding: 30px;
-    margin: 40px;
+    padding: 20px;
+    margin: 30px;
     color:black;
     margin-top: 150px;
 
@@ -19,4 +19,7 @@
 }
 .mail{
     color: #31bed5;
+}
+.img-doc{
+    width: 20%;
 }
