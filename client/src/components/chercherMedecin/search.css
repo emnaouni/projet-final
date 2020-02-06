@@ -3,10 +3,10 @@
 }
 #searchdoctor{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 80%;
     margin: auto;
-    /* margin-top: 30px; */
+    margin-top: 30px;
     padding: 13px 0px 43px 0px;
 }
 .formSearch{
@@ -15,7 +15,7 @@
 }
 .name-doc{
     width: 102%;
-    padding: 5px;
+    padding: 10px;
 }
 .docc {
     width: 100px;
@@ -23,6 +23,12 @@
     padding-top: 23px;
     display: flex;
     align-items: baseline;
+}
+.buttonSearch{
+    background-color: #007bff;
+    border-radius: 15px;
+    padding: -5px;
+    font-size: large;
 }
 .medecinlab{
     color: #32afff;

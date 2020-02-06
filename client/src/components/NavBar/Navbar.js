@@ -3,14 +3,16 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import{Navbar,Nav}from "react-bootstrap";
 import logo from '../../images/logoSant.png'
 import './navBar.css'
+import {Link} from "react-router-dom"
+
 
 const Nabar = () => { 
   
    return (
      <Navbar className="primary" variant="dark">
-      <Nav.Link href="#home">Vous êtes un medecin?</Nav.Link>
-     <Navbar.Brand href="#home"><img src={logo} alt="logo"/></Navbar.Brand>
-     <Nav.Link href="#home">Mon compte</Nav.Link> 
+       <Link to={'/Login/medecin'}> Vous êtes un medecin?  </Link> 
+     <Navbar.Brand href="#home"><Link to={'/'}> <img src={logo} alt="logo"/> </Link> </Navbar.Brand>
+     <Nav.Link href="#home"><Link to={'/Login/patient'}> Mon compte </Link> </Nav.Link> 
    
       </Navbar>
     

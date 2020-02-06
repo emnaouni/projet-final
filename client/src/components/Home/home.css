@@ -13,12 +13,13 @@
 }
 .intro{
     display: flex;
-    width: 22%;
+    width: 328px!important;
     top: 30%;
     padding: 21px;
     margin: auto;
     position: absolute;
     left: 40%;
+
 
 }
 .intoGeneral{

@@ -1,85 +1,123 @@
-import React from 'react';
+
 import './search.css'
 import medecin from '../../images/medecin.png'
-const SearchDoctors = () => {
-    return (<section className="formSearch">
-     <div className="docc"> <img src={medecin} style={{width:"40%"}}/><label className="medecinlab">Médecin</label></div>  
-    <form id="searchdoctor" >
-          <div className="searchName" >
-              <input className="name-doc" type="text" name="doctorName" placeholder="Nom du professionnel de santé" value="" />
-          </div>
-          <select name="field_speciality" className="SpecialiteSelect" >
-                                <optgroup value="0" label="">
-                                <option value="13">
-                                                Specialité   </option>
-                                            <option value="13">
-                                                Cardiologue  (Cœur)    </option>
-                                            <option value="24">
-                                                Chirurgien Esthétique    </option>
-                                            <option value="20">
-                                                Chirurgien Orthopédiste Traumatologue  </option>
-                                            <option value="29">
-                                                Dentiste  (Dents)    </option>
-                                            <option value="30">
-                                                Dermatologue  (Peau)       </option>
-                                            <option value="36">
-                                                Généraliste                                                     </option>
-                                            <option value="39">
-                                                Gynécologue Obstétricien                                                     </option>
-                                            <option value="65">
-                                                Nutritionniste                                                     </option>
-                                            <option value="66">
-                                                Ophtalmologue  (Yeux)                                                    </option>
-                                            <option value="72">
-                                                Pédiatre  (Enfant)                                                    </option>
-                                             <option value="93">
-                                                Psychiatre  (Troubles mentaux)                                                    </option>
-                                            <option value="94">
-                                                Psychothérapeute                                                     </option>
-                                            <option value="80">
-                                                Radiologue                                                     </option>
-                                            <option value="87">
-                                                Rhumatologue                                                     </option>
-                                            <option value="95">
-                                                Sexologue                                                     </option>
-                                              </optgroup>
-                                        
-                                    </select>
-                                 
-                                    <select  name="field_gouvernorat_doctor" className="Ville-doctor" data-pf-plc="Ville" tabindex="-1" aria-hidden="true">
-                                        <option value="GT">Grand Tunis</option>
-                                        <option disabled="">------------------</option>
-                                        <option value="23" selected >Tunis </option>
-                                        <option value="17">Sfax</option>
-                                        <option value="20">Sousse</option>
-                                        <option value="15">Monastir</option>
-                                        <option value="1">Ariana</option>
-                                        <option value="3">Ben arous</option>
-                                        <option value="16">Nabeul</option>
-                                        <option value="12">Mahdia</option>
-                                        <option value="8">Kairouan</option>
-                                        <option value="4">Bizerte</option>
-                                        <option value="14">Medenine</option>
-                                        <option value="13">Mannouba</option>
-                                        <option value="5">Gabes</option>
-                                        <option value="2">Beja</option>
-                                        <option value="6">Gafsa</option>
-                                        <option value="7">Jendouba</option>
-                                        <option value="11">Le Kef</option>
-                                        <option value="18">Sidi bouzid</option>
-                                        <option value="9">Kasserine</option>
-                                        <option value="24">Zaghouan</option>
-                                        <option value="19">Siliana</option>
-                                        <option value="10">Kebili</option>
-                                        <option value="21">Tataouine</option>
-                                        <option value="22">Tozeur</option>
-                                    </select>
-                        
-                         
+import { connect } from "react-redux"
+import React, { Component } from 'react';
+import {getAdresseCabinet,getNom,getSpecialite} from '../../actions/medicinActions'
+import { Link } from "react-router-dom"
 
-</form>
-</section>
-          );
- }
-                                        
+export class SearchDoctors extends Component {
+    constructor(props) {
+        super(props);
+        this.state = {
+            Nom: "",
+            AdresseCabinet: "",
+            Specialite: ""
+        }
+    }
+
+    handleChange = e => {
+        this.setState({[e.target.name]: e.target.value })
+       
+            // if(this.state.Nom !== "" && this.state.AdresseCabinet !=="" && this.state.Specialite !== ""){
+            //     this.props.history.push(`/search/${this.state.Nom}/${this.state.AdresseCabinet}/${this.state.Specialite}`)
+            
+    }
+   
+    render() {
+        return (
+            <section className="formSearch">
+                <div className="docc">
+                    <img src={medecin} style={{ width: "40%" }} />
+                    <label className="medecinlab">Médecin</label>
+                </div>
+                <form id="searchdoctor" >
+                    <div className="searchName" >
+                        <input className="name-doc"  type="text" name="Nom" placeholder="Nom du professionnel de santé" value={this.state.Nom} onChange={this.handleChange} />
+                    </div>
+                    <select name="Specialite" className="SpecialiteSelect" onChange={this.handleChange} >
+                        <optgroup value="0" label="">
+                            <option value="13">
+                                Specialité   </option>
+                            <option value="Cardiologue  (Cœur) ">
+                                Cardiologue  (Cœur)    </option>
+                            <option value="Chirurgien Esthétique">
+                                Chirurgien Esthétique    </option>
+                            <option value="Chirurgien Orthopédiste Traumatologue ">
+                                Chirurgien Orthopédiste Traumatologue  </option>
+                            <option value="Dentiste  (Dents)">
+                                Dentiste  (Dents)    </option>
+                            <option value="Dermatologue  (Peau)">
+                                Dermatologue  (Peau)       </option>
+                            <option value="Généraliste">
+                                Généraliste            </option>
+                            <option value="Gynécologue Obstétricien ">
+                                Gynécologue Obstétricien                                                     </option>
+                            <option value="Nutritionniste">
+                                Nutritionniste                                                     </option>
+                            <option value="Ophtalmologue  (Yeux) ">
+                                Ophtalmologue  (Yeux)                                                    </option>
+                            <option value="Pédiatre  (Enfant)">
+                                Pédiatre  (Enfant)                                                    </option>
+                            <option value="Psychiatre  (Troubles mentaux)  ">
+                                Psychiatre  (Troubles mentaux)                                                    </option>
+                            <option value="Psychothérapeute ">
+                                Psychothérapeute                                                     </option>
+                            <option value="Radiologue ">
+                                Radiologue                                                     </option>
+                            <option value="Rhumatologue ">
+                                Rhumatologue                                                     </option>
+                            <option value="Sexologue">
+                                Sexologue                                                     </option>
+                        </optgroup>
+
+                    </select>
+
+                    <select onChange={this.handleChange} name="AdresseCabinet"  className="Ville-doctor" data-pf-plc="Ville" tabindex="-1" aria-hidden="true" >
+                        <option value="GT">Grand Tunis</option>
+                        <option disabled="">------------------</option>
+                        <option value="Tunis " selected >Tunis </option>
+                        <option value="Sfax">Sfax</option>
+                        <option value="Sousse">Sousse</option>
+                        <option value="Monastir">Monastir</option>
+                        <option value="Ariana">Ariana</option>
+                        <option value="Ben arous">Ben arous</option>
+                        <option value="Nabeul">Nabeul</option>
+                        <option value="Mahdia">Mahdia</option>
+                        <option value="Kairouan">Kairouan</option>
+                        <option value="Bizerte">Bizerte</option>
+                        <option value="Medenine">Medenine</option>
+                        <option value="Mannouba">Mannouba</option>
+                        <option value="Gabes">Gabes</option>
+                        <option value="Beja">Beja</option>
+                        <option value="Gafsa">Gafsa</option>
+                        <option value="Jendouba">Jendouba</option>
+                        <option value="Le Kef">Le Kef</option>
+                        <option value="Sidi bouzid">Sidi bouzid</option>
+                        <option value="Kasserine">Kasserine</option>
+                        <option value="Zaghouan">Zaghouan</option>
+                        <option value="Siliana">Siliana</option>
+                        <option value="Kebili">Kebili</option>
+                        <option value="Tataouine">Tataouine</option>
+                        <option value="Tozeur">Tozeur</option>
+                    </select>
+
+
+                <button className="buttonSearch"><Link className="buttonSearch" to={`/search/${this.state.Nom === "" ? "gggg":this.state.Nom }/${this.state.AdresseCabinet === "" ? "gggg" : this.state.AdresseCabinet }/${this.state.Specialite=== "" ? "gggg":this.state.Specialite}`}>
+                    <i class="fas fa-search"></i>Chercher</Link></button>
+
+                </form>
+            </section>
+
+        );
+    }
+}
+
+// const mapDispatchToProps = dispatch => {
+//     return {
+//       getname: name => dispatch(getNom(name)),
+//       getspecialite: specialit => dispatch(getSpecialite(specialit)),
+//       getadressecab: adresse => dispatch(getAdresseCabinet(adresse))
+//     }
+// }
 export default SearchDoctors;

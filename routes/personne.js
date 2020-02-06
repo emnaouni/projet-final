@@ -47,14 +47,14 @@ router.post("/", [
     if (!errors.isEmpty()) {
         return res.send({ errors: errors.array() })
     }
-    const { Nom, Role, Prenom, Email, password } = req.body;
+    const { Nom, Role, Prenom, Email, password ,AdresseCabinet ,Specialite} = req.body;
     Personne.findOne({ Email })
         .then(user => {
             if (user) {
                 res.send('User already exist')
             }
             else {
-                let newPersonne = new Personne({ Nom, Role, Prenom, Email, password });
+                let newPersonne = new Personne({ Nom, Role, Prenom, Email, password, AdresseCabinet,Specialite });
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newPersonne.password, salt, (err, hashedPassword) => {
 
