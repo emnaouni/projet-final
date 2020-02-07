@@ -20,6 +20,10 @@ import { connect } from "react-redux"
 import { TableHead } from '@material-ui/core';
 import AddModal from './AddMedicaments';
 import EditMedicaments from './EditMedicaments';
+import swal from 'sweetalert';
+import ModalAlert from './ModalAlert'
+
+
 
 const actionsStyles = theme => ({
     root: {
@@ -124,6 +128,7 @@ const styles = theme => ({
     },
 });
 
+
 class ListMedicaments extends React.Component {
     constructor(props) {
         super(props);
@@ -135,7 +140,24 @@ class ListMedicaments extends React.Component {
 
     }
 
-
+    // tryy = () => {
+    //     swal({
+    //         title: "Are you sure?",
+    //         text: "Once deleted, you will not be able to recover this imaginary file!",
+    //         icon: "warning",
+    //         buttons: true,
+    //         dangerMode: true,
+    //       })
+    //       .then((willDelete) => {
+    //         if (willDelete) {
+    //           swal("Poof! Your imaginary file has been deleted!", {
+    //             icon: "success",
+    //           });
+    //         } else {
+    //           swal("Your imaginary file is safe!");
+    //         }
+    //       })
+    // }
     handleChangePage = (event, page) => {
         this.setState({ page });
     };
@@ -172,10 +194,13 @@ class ListMedicaments extends React.Component {
                                         <TableCell component="th" scope="row">
                                             {row.NomMedicament}
                                         </TableCell>
-                                        <TableCell>
-                                            <button variant="primary" > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)}></i></button>
+                                        {/* <TableCell>
+                                            <button variant="primary"  > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)} ></i></button>
+                                        </TableCell> */}
+                                        <TableCell component="th" scope="row">
+                                            <ModalAlert id={row._id}/>
                                         </TableCell>
-                                        <TableCell>
+                                        <TableCell component="th" scope="row">
                                             {/* <i className="fa fa-edit"></i> */}
                                             <EditMedicaments id={row._id} />
                                         </TableCell>
