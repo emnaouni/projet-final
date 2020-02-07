@@ -2,8 +2,11 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import Admin from "./components/Admin/Admin"
+import Home from "./components/Home/Home"
 import * as serviceWorker from './serviceWorker';
-import {Provider} from "react-redux"
+import { Provider } from "react-redux"
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from "./store"
 import Medecin from './components/medecin/Medecin';
 import { BrowserRouter, Route } from 'react-router-dom';
@@ -18,6 +21,7 @@ ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
     <Alert/>
+    <Route exact path="/Admin" component={Admin} />
     <Route exact path="/search/:Nom/:adress/:spec" component={Medecin}/>
     <Route exact path="/" component={Home}/>
     <Route exact path='/Login/:role' component={Compte}/>
