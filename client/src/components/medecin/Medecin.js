@@ -39,11 +39,13 @@ class Medecin extends Component {
                 )
                 ):this.props.alldoctors.medecins.map(el => (
                     <div className="doctorCard">
+                        
                         <div className="doctorItem">
                             <h3>{el.Nom} {el.Prenom}</h3>
                            
                             <p className="specialité">specialité: {el.Specialite}</p>
                             
+
                             <p className="mail">Email:{el.Email}</p>
                             <p className="adresse">Adresse:{el.AdresseCabinet}</p>
                            
