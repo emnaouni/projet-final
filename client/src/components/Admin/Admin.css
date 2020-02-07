@@ -1,0 +1,8 @@
+.addMed{
+    display: flex;
+    justify-content: flex-end;
+}
+
+.Modal_Add_Medicament{
+    margin-top: 100px;
+}

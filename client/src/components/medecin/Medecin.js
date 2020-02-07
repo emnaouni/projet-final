@@ -12,17 +12,17 @@ class Medecin extends Component {
     
     render() {
         return (
-            <div className="DoctorsList"> {  console.log('hiii')}
-               { this.props.alldoctors.medecins.map( el=>(
-                    
-                   <div className="doctorItem">
-                       <p>nom</p>{el.Nom}
-                       <p>Prenom</p>{el.Prenom}
-                       <p>Email</p> {el.Email}
-                   </div>
-               )
-                )}
-            </div>
+                <div className="DoctorsList"> {  console.log('hiii')}
+                { this.props.alldoctors.medecins.map( el=>(
+                        
+                    <div className="doctorItem">
+                        <p>nom</p>{el.Nom}
+                        <p>Prenom</p>{el.Prenom}
+                        <p>Email</p> {el.Email}
+                    </div>
+                )
+                    )}
+                </div>
         );
     }
 

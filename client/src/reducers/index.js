@@ -1,3 +1,5 @@
 import {combineReducers} from 'redux'
 import medecinReducer from '../reducers/medecinReducer'
-export default combineReducers({medecinReducer})
+import listMedicamentsReducer from '../reducers/listMedicamentsReducer'
+
+export default combineReducers({medecinReducer,listMedicamentsReducer})
