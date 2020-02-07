@@ -49,6 +49,14 @@ const PersonneSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  Telephone: {
+    type: String,
+    required: false
+  },
+  TelephoneCabine: {
+    type: String,
+    required: false
+  },
   AdresseCabinet: {
     type: String,
     required: false

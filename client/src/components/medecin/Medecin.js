@@ -6,11 +6,11 @@ import Calendrier from './Calendrier';
 class Medecin extends Component {
 
     state = {
-
+     
     }
     componentDidMount() {
         this.props.getmedecins();
-        
+      
     }
 
     render() {
@@ -66,4 +66,4 @@ const MapStateToProps = state => {
         alldoctors: state.medecin
     };
 }
-export default connect(MapStateToProps, { getmedecins })(Medecin);
+export default connect(MapStateToProps, {getmedecins})(Medecin);

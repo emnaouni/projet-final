@@ -24,11 +24,12 @@
     display: flex;
     align-items: baseline;
 }
-.buttonSearch{
-    background-color: #007bff;
+.buttonSearch{    background-color: #007bff;
     border-radius: 15px;
     padding: -5px;
-    font-size: large;
+    font-size: smaller;
+    color: white;
+    padding: 7px;
 }
 .medecinlab{
     color: #32afff;

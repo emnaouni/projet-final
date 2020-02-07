@@ -103,8 +103,8 @@ export class SearchDoctors extends Component {
                     </select>
 
 
-                <button className="buttonSearch"><Link className="buttonSearch" to={`/search/${this.state.Nom === "" ? "gggg":this.state.Nom }/${this.state.AdresseCabinet === "" ? "gggg" : this.state.AdresseCabinet }/${this.state.Specialite=== "" ? "gggg":this.state.Specialite}`}>
-                    <i class="fas fa-search"></i>Chercher</Link></button>
+                <Link  to={`/search/${this.state.Nom === "" ? "gggg":this.state.Nom }/${this.state.AdresseCabinet === "" ? "gggg" : this.state.AdresseCabinet }/${this.state.Specialite=== "" ? "gggg":this.state.Specialite}`}>
+                <button className="buttonSearch">  <i class="fas fa-search"></i>Chercher</button></Link>
 
                 </form>
             </section>

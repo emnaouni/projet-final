@@ -11,6 +11,14 @@ export const getmedecins = () => dispatch => {
         })
       );
   };
+
+
+
+
+
+
+
+  
   export const getNom=(nom)=>{
     return {
            type: GET_NAME,

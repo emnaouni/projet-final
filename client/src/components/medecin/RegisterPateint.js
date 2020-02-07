@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Register.css'
-import RegisterStepperPatient from './StepperPatient';
+import RegisterStepperPatient from '../NavBar/StepperPatient';
 
 class RegisterPatient extends Component {
     render() {

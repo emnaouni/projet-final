@@ -7,6 +7,10 @@ import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
 import RadioButtonsGroup from './RadioButtonsGroup';
+import {connect} from "react-redux"
+import {registerPatient,ClearError} from '../../actions/authActions'
+import {removeAlert,setAlert } from '../../actions/AlertActions'
+import uuid from 'uuid'
 
 const styles = theme => ({
   root: {
@@ -21,11 +25,26 @@ const styles = theme => ({
   },
 });
 
-function getSteps() {
+
+
+class RegisterStepperMedecin extends React.Component {
+  state = {
+    activeStep: 0,
+    Nom:'',
+    Prenom:'',
+    AdresseCabinet:'',
+    Telephone:'',
+    Email:'',
+    password:'',
+    Role:":medecin",
+    Specialite:''
+  
+  };
+getSteps=()=> {
   return ['Adresse e-mail', 'Informations ', 'mot de passe'];
 }
 
-function getStepContent(stepIndex) {
+ getStepContent=(stepIndex)=> {
   switch (stepIndex) {
     case 0:
       return (<div>
@@ -33,7 +52,7 @@ function getStepContent(stepIndex) {
           <h2 className="tout">Tout d'abord, quelle est votre adresse e-mail ?</h2>
           </div>
         
-        <input className="inp" placeholder="EX:ex@gmail.com" />
+        <input className="inp" placeholder="EX:ex@gmail.com" onChange={this.handleChange} name="Email" />
         <p className="accept">J'accepte les conditions générales d'utilisation</p>
         <p className="souhait">Je souhaite recevoir les conseils de santé par e-mail</p>
       </div>);
@@ -43,19 +62,19 @@ function getStepContent(stepIndex) {
         <p>Numéro d'adhérent ou code d'activation :</p>
         <input className="inp"/> */}
         <p>Prénom : </p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Prenom"/>
         <p>Nom : </p>
-        <input className="inp"/>
-        <p>CIN : </p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Nom"/>
+        {/* <p>CIN : </p>
+        <input className="inp" /> */}
         <p>Spécialité : </p>
-        <input className="inp"/>
-        <p>Date de Naissance :</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Specialite"/>
+        {/* <p>Date de Naissance :</p>
+        <input className="inp" /> */}
         <p>Numéro de téléphone portable :</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Telephone"/>
         <p>Adresse cabinet :</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="AdresseCabinet"/>
         <div className='gender'>
           <p>genre :  </p>
         <RadioButtonsGroup/>
@@ -71,7 +90,7 @@ function getStepContent(stepIndex) {
       return <div className="inscri-doc" >
         <p className="votr-nem">Mot de passe</p>
         <p>Mot de passe : </p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="password"/>
         
           <p>Votre mot de passe doit contenir :</p>
          <ul className="list-password"> 
@@ -94,10 +113,9 @@ function getStepContent(stepIndex) {
   }
 }
 
-class RegisterStepper extends React.Component {
-  state = {
-    activeStep: 0,
-  };
+handleChange = e => {
+  this.setState({[e.target.name]: e.target.value})
+}
 
   handleNext = () => {
     this.setState(state => ({
@@ -117,9 +135,46 @@ class RegisterStepper extends React.Component {
     });
   };
 
+
+  
+registerNow=()=>{
+  if(this.state.Nom === '' || this.state.Prenom === '' || this.state.Email=== '' || this.state.password === ''|| this.state.Telephone===''|| this.state.Specalite===''|| this.state.AdresseCabinet==='' ){
+    let id = uuid()
+    this.props.setAlert('All fields are required', 'warning', id)
+    setTimeout(() => {
+      this.props.removeAlert(id)
+    }, 5000);
+    }
+  else{
+    this.props.registerPatient({
+        Nom:this.state.Nom,
+        Prenom:this.state.Prenom,
+        Specalite:this.state.Specalite,
+        Telephone:this.state.Telephone,
+        AdresseCabinet:this.state.AdresseCabinet,
+        Email:this.state.Email,
+        password:this.state.password,
+        Role:this.state.Role
+    })
+  }
+}
+componentWillReceiveProps(nextProps) {
+  if(nextProps.auth.isAuthenticated){
+      this.props.history.push('/')
+  }
+  if(nextProps.auth.error ==='User already exist!!'){
+      let id = uuid()
+      this.props.setAlert(nextProps.auth.error, 'danger', id)
+      setTimeout(() => {
+          this.props.removeAlert(id) 
+          this.props.ClearError()
+      }, 5000);
+  }
+  
+}
   render() {
     const { classes } = this.props;
-    const steps = getSteps();
+    const steps = this.getSteps();
     const { activeStep } = this.state;
 
     return (
@@ -139,7 +194,7 @@ class RegisterStepper extends React.Component {
             </div>
           ) : (
               <div >
-                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                <Typography className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
                 <div className="StepperButtons">
                   <Button
                     disabled={activeStep === 0}
@@ -149,7 +204,7 @@ class RegisterStepper extends React.Component {
                   >
                     Back
                 </Button>
-                  <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  <Button variant="contained" color="primary" onClick={activeStep === steps.length - 1 ?this.registerNow : this.handleNext}>
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
                   </Button>
                 </div>
@@ -161,8 +216,16 @@ class RegisterStepper extends React.Component {
   }
 }
 
-RegisterStepper.propTypes = {
+RegisterStepperMedecin.propTypes = {
   classes: PropTypes.object,
 };
 
-export default withStyles(styles)(RegisterStepper);
+
+const mapStateToProps = state => {
+  return{
+      auth: state.auth
+  }
+}
+export default connect(mapStateToProps,{setAlert,removeAlert,registerPatient,ClearError})(withStyles(styles)(RegisterStepperMedecin));
+
+

@@ -7,8 +7,14 @@ import chrono from '../../images/chrono.png'
 import CommentMarche from '../Commentmarche/CommetçaMarche'
 import SearchDoctor from '../chercherMedecin/SearchDoctors'
 import Footer from '../footer/Footer'
-const Home = () => {
-   return (
+import {connect} from 'react-redux'
+import {loadUser} from '../../actions/authActions'
+class Home extends React.Component{
+    componentWillMount() {
+        this.props.loadUser()
+    }
+    
+    render(){return (
        <div className="Home">
        <section className="Section-navBar">
              <Nabar/>
@@ -26,6 +32,9 @@ const Home = () => {
        <Footer/>
     </div>
     );
+
+}
+   
 }
 
-export default Home;
+export default connect(null ,{loadUser})(Home);
