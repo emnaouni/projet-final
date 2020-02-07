@@ -9,10 +9,8 @@ import { Provider } from "react-redux"
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import store from "./store"
 import Medecin from './components/medecin/Medecin';
-import { BrowserRouter, Route } from 'react-router-dom';
 import Compte from './components/medecin/Compte';
 import Register from './components/medecin/Register';
-import Home from './components/Home/Home'
 import  Alert  from './components/Alert/Alert';
 import RegisterPatient from './components/medecin/RegisterPateint'
 
