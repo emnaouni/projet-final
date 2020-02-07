@@ -9,7 +9,7 @@ const auth= require('../middleware/auth')
 const jwtSecrect = "secret"
 //get the logged in user
 //Private router
-router.get('/',auth, (req, res) => {
+router.get('/', auth, (req, res) => {
    Personne.findById(req.user.id)
    .then(user=>res.json(user))
    .catch(err=>console.log(err.message))
@@ -30,7 +30,7 @@ router.post("/", [
         .then(user => {
             if (!user) {
                 //Check is user exists
-                return res.json({ msg: "Plase Register Before!" })
+                return res.status(400).json({ msg: "Please Register Before!" })
             } else {
                 console.log(req.body)
                 //compare Password
@@ -50,12 +50,15 @@ router.post("/", [
                         })
                     }
                     else {
-                        return res.json({ msg: 'Wrong password' })
+                        return res.status(401).json({ msg: 'Wrong password' })
                     }
                 })
             }
         })
-        .catch(err => console.log(err.message))
+        .catch(err => {
+            console.log(err.message)
+            res.send('Server error')
+        })
 })
 
 

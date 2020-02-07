@@ -3,7 +3,7 @@
     background-repeat: no-repeat;
     background-color: #32afff!important;
 }
-h1{ color: #fff;
+.BesoinIntro{ color: #fff;
     font-size: 26px;
     text-align: center;
     font-weight: 100;
@@ -13,12 +13,13 @@ h1{ color: #fff;
 }
 .intro{
     display: flex;
-    width: 22%;
-    top: 28%;
-    padding: 23px;
+    width: 328px!important;
+    top: 30%;
+    padding: 21px;
     margin: auto;
     position: absolute;
     left: 40%;
+
 
 }
 .intoGeneral{
@@ -36,8 +37,11 @@ h1{ color: #fff;
     opacity: 10%;
 }
 .introParag{
-    font-family: cursive;
+    /* font-family: cursive; */
     margin: 0;
     font-size: 16px;
     font-weight: bold;
+}
+body{
+    font-family: 'Comfortaa',monospace;
 }

@@ -1,13 +1,16 @@
 import React from 'react';
-import PropTypes from 'prop-types';
 import { withStyles } from '@material-ui/core/styles';
 import Stepper from '@material-ui/core/Stepper';
 import Step from '@material-ui/core/Step';
 import StepLabel from '@material-ui/core/StepLabel';
 import Button from '@material-ui/core/Button';
 import Typography from '@material-ui/core/Typography';
-import RadioButtonsGroup from './RadioButtonsGroup';
-
+import RadioButtonsGroup from '../medecin/RadioButtonsGroup';
+import {connect} from "react-redux"
+import {registerPatient,ClearError} from '../../actions/authActions'
+import {removeAlert,setAlert } from '../../actions/AlertActions'
+import { withRouter } from "react-router-dom"
+import uuid from 'uuid'
 const styles = theme => ({
   root: {
     width: '90%',
@@ -21,11 +24,27 @@ const styles = theme => ({
   },
 });
 
-function getSteps() {
+class RegisterStepper extends React.Component {
+  state = {
+    activeStep: 0,
+   
+      Nom:'',
+      Prenom:'',
+      Adress:'',
+      Telephone:'',
+      CIN:'',
+      Email:'',
+      DateNaiss:'',
+      password:'',
+      Role:"patient"
+    
+  };
+
+getSteps=() =>{
   return ['Adresse e-mail', 'Informations ', 'mot de passe'];
 }
 
-function getStepContent(stepIndex) {
+getStepContent =(stepIndex)=> {
   switch (stepIndex) {
     case 0:
       return (<div>
@@ -33,7 +52,7 @@ function getStepContent(stepIndex) {
           <h2 className="tout-patient">Tout d'abord, quelle est votre adresse e-mail ?</h2>
           </div>
         
-        <input className="inp" placeholder="EX:ex@gmail.com" />
+        <input className="inp" placeholder="EX:ex@gmail.com" onChange={this.handleChange} name="Email"/>
         <p className="accept">J'accepte les conditions générales d'utilisation</p>
         <p className="souhait">Je souhaite recevoir les conseils de santé par e-mail</p>
       </div>);
@@ -43,17 +62,17 @@ function getStepContent(stepIndex) {
         <p>Numéro d'adhérent ou code d'activation :</p>
         <input className="inp"/> */}
         <p>Prénom : </p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Prenom"/>
         <p>Nom : </p>
-        <input className="inp"/>
+        <input className="inp"  onChange={this.handleChange} name="Nom"/>
         <p>CIN : </p>
-        <input className="inp"/>
+        <input className="inp"  onChange={this.handleChange} name="CIN"/>
         <p>Date de Naissance :</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="DateNaiss"/>
         <p>Numéro de téléphone portable :</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Telephone"/>
         <p>Adresse:</p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="Adress"/>
         <div className='gender'>
           <p>genre :  </p>
         <RadioButtonsGroup/>
@@ -69,7 +88,7 @@ function getStepContent(stepIndex) {
       return <div className="inscri-doc" >
         <p className="votr-pat">Mot de passe</p>
         <p>Mot de passe : </p>
-        <input className="inp"/>
+        <input className="inp" onChange={this.handleChange} name="password"/>
         
           <p>Votre mot de passe doit contenir :</p>
          <ul className="list-password"> 
@@ -92,11 +111,10 @@ function getStepContent(stepIndex) {
   }
 }
 
-class RegisterStepper extends React.Component {
-  state = {
-    activeStep: 0,
-  };
 
+  handleChange = e => {
+    this.setState({[e.target.name]: e.target.value})
+}
   handleNext = () => {
     this.setState(state => ({
       activeStep: state.activeStep + 1,
@@ -114,10 +132,46 @@ class RegisterStepper extends React.Component {
       activeStep: 0,
     });
   };
-
+registerNow=()=>{
+  if(this.state.Nom === '' || this.state.Prenom === '' || this.state.Email=== '' || this.state.password === ''|| this.state.Telephone===''|| this.state.DateNaiss===''|| this.state.Adress==='' ){
+    let id = uuid()
+    this.props.setAlert('All fields are required', 'warning', id)
+    setTimeout(() => {
+      this.props.removeAlert(id)
+    }, 5000);
+    }
+  else{
+    this.props.registerPatient({
+        Nom:this.state.Nom,
+        Prenom:this.state.Prenom,
+        Adress:this.state.Adress,
+        Telephone:this.state.Telephone,
+        CIN:this.state.CIN,
+        Email:this.state.Email,
+        DateNaiss:this.state.DateNaiss,
+        password:this.state.password,
+        Role:this.state.Role
+    })
+  }
+}
+componentWillReceiveProps(nextProps) {
+  if(nextProps.auth.isAuthenticated){
+      this.props.history.push('/')
+  }
+  if(nextProps.auth.error ==='User already exist!!'){
+      let id = uuid()
+      this.props.setAlert(nextProps.auth.error, 'danger', id)
+      setTimeout(() => {
+          this.props.removeAlert(id) 
+          this.props.ClearError()
+      }, 5000);
+  }
+  
+}
   render() {
+    console.log(this.props);
     const { classes } = this.props;
-    const steps = getSteps();
+    const steps = this.getSteps();
     const { activeStep } = this.state;
 
     return (
@@ -137,7 +191,7 @@ class RegisterStepper extends React.Component {
             </div>
           ) : (
               <div >
-                <Typography className={classes.instructions}>{getStepContent(activeStep)}</Typography>
+                <Typography className={classes.instructions}>{this.getStepContent(activeStep)}</Typography>
                 <div className="StepperButtons">
                   <Button
                     disabled={activeStep === 0}
@@ -147,8 +201,9 @@ class RegisterStepper extends React.Component {
                   >
                     Back
                 </Button>
-                  <Button variant="contained" color="primary" onClick={this.handleNext}>
+                  <Button variant="contained" color="primary" onClick={activeStep === steps.length - 1 ?this.registerNow : this.handleNext}>
                     {activeStep === steps.length - 1 ? 'Finish' : 'Next'}
+                    
                   </Button>
                 </div>
               </div>
@@ -159,8 +214,10 @@ class RegisterStepper extends React.Component {
   }
 }
 
-RegisterStepper.propTypes = {
-  classes: PropTypes.object,
-};
 
-export default withStyles(styles)(RegisterStepper);
+const mapStateToProps = state => {
+  return{
+      auth: state.auth
+  }
+}
+export default connect(mapStateToProps,{setAlert,removeAlert,registerPatient,ClearError})(withStyles(styles)(withRouter(RegisterStepper)));

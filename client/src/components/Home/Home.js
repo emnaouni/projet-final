@@ -7,13 +7,19 @@ import chrono from '../../images/chrono.png'
 import CommentMarche from '../Commentmarche/CommetçaMarche'
 import SearchDoctor from '../chercherMedecin/SearchDoctors'
 import Footer from '../footer/Footer'
-const Home = () => {
-   return (
+import {connect} from 'react-redux'
+import {loadUser} from '../../actions/authActions'
+class Home extends React.Component{
+    componentWillMount() {
+        this.props.loadUser()
+    }
+    
+    render(){return (
        <div className="Home">
        <section className="Section-navBar">
              <Nabar/>
            <div className="intoGeneral">
-               <h1>Besoin d'un professionel de santé?</h1>
+               <h1 className="BesoinIntro">Besoin d'un professionel de santé?</h1>
                <img  className="chrono"src={chrono}/>
            <div className="intro">
                <p className='introParag'>Avec E-santé, trouvez et prenez rendez-vous avec un médecin, un dentiste, un spécialiste tout de suite.</p>
@@ -26,6 +32,9 @@ const Home = () => {
        <Footer/>
     </div>
     );
+
+}
+   
 }
 
-export default Home;
+export default connect(null ,{loadUser})(Home);

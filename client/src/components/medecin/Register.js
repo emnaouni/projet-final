@@ -1,9 +1,11 @@
 import React, { Component } from 'react'
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './Register.css'
+import {connect} from "react-redux"
+import {removeAlert,setAlert} from '../../actions/AlertActions'
 import RegisterStepper from './Stepper';
-
-class Register extends Component {
+ class Register extends Component {
+     
     render() {
         return (
             <div className="regis">
@@ -27,4 +29,10 @@ class Register extends Component {
         )
     }
 }
-export default Register
+const mapDispatchToProps=dispatch=>{
+    return{
+        setAlert: alert=>dispatch(setAlert(alert)),
+        clearAlert: id=>dispatch(removeAlert(id))
+    }
+}
+export default connect(null,mapDispatchToProps)(Register)

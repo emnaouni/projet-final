@@ -40,24 +40,23 @@ router.post("/", [
     check("Nom", "Please Enter ur Firstname").not().isEmpty(),
     check("Prenom", "Please Enter ur Lastname").not().isEmpty(),
     check("Email", "Please Enter a valide Email").isEmail(),
-    check("password", "Password must be 6 or more caracters").not().isEmpty().isLength({ min: 6 })
+    check("password", "Password must be 6 or more caracters").isLength({ min: 6 })
 
 ], (req, res) => {
     const errors = validationResult(req);
     if (!errors.isEmpty()) {
         return res.send({ errors: errors.array() })
     }
-    const { Nom, Role, Prenom, Email, password } = req.body;
+    const { Nom, Role, Prenom, Email, password ,AdresseCabinet ,Specialite,Adress,Telephone,DateNaiss,CIN} = req.body;
     Personne.findOne({ Email })
         .then(user => {
             if (user) {
-                res.send('User already exist')
+                res.send({msg:'User already exist!!'})
             }
             else {
-                let newPersonne = new Personne({ Nom, Role, Prenom, Email, password });
+                let newPersonne = new Personne({ Nom, Role, Prenom, Email, password ,AdresseCabinet ,Specialite,Adress,Telephone,DateNaiss,CIN });
                 bcrypt.genSalt(10, (err, salt) => {
                     bcrypt.hash(newPersonne.password, salt, (err, hashedPassword) => {
-
                         newPersonne.password = hashedPassword
                         newPersonne.save()
                         const payload = {
@@ -76,7 +75,10 @@ router.post("/", [
             }
 
         })
-        .catch((err) => console.log(err.message))
+        .catch((err) => {
+            res.send({msg: "Server Error"})
+            console.log(err.message)
+        })
 });
 
 

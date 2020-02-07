@@ -3,19 +3,19 @@
 }
 #searchdoctor{
     display: flex;
-    justify-content: space-around;
+    justify-content: space-between;
     width: 80%;
     margin: auto;
-    /* margin-top: 30px; */
+    margin-top: 30px;
     padding: 13px 0px 43px 0px;
 }
 .formSearch{
     background-color: #f1f1f1;
     position: relative;
 }
-input{
-    width: 100%;
-    padding: 5px;
+.name-doc{
+    width: 102%;
+    padding: 10px;
 }
 .docc {
     width: 100px;
@@ -23,6 +23,13 @@ input{
     padding-top: 23px;
     display: flex;
     align-items: baseline;
+}
+.buttonSearch{    background-color: #007bff;
+    border-radius: 15px;
+    padding: -5px;
+    font-size: smaller;
+    color: white;
+    padding: 7px;
 }
 .medecinlab{
     color: #32afff;
