@@ -35,10 +35,6 @@ const actionsStyles = theme => ({
 
 class TablePaginationActions extends React.Component {
 
-
-
-
-
     handleFirstPageButtonClick = event => {
         this.props.onChangePage(event, 0);
     };
@@ -140,24 +136,6 @@ class ListMedicaments extends React.Component {
 
     }
 
-    // tryy = () => {
-    //     swal({
-    //         title: "Are you sure?",
-    //         text: "Once deleted, you will not be able to recover this imaginary file!",
-    //         icon: "warning",
-    //         buttons: true,
-    //         dangerMode: true,
-    //       })
-    //       .then((willDelete) => {
-    //         if (willDelete) {
-    //           swal("Poof! Your imaginary file has been deleted!", {
-    //             icon: "success",
-    //           });
-    //         } else {
-    //           swal("Your imaginary file is safe!");
-    //         }
-    //       })
-    // }
     handleChangePage = (event, page) => {
         this.setState({ page });
     };

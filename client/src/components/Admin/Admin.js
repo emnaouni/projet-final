@@ -129,6 +129,7 @@ class Admin extends React.Component {
                 menuName: "Médicaments",
                 linkItem: "/Admin/ListMedicament"
             },
+          
            
         ];
         return (
@@ -152,9 +153,7 @@ class Admin extends React.Component {
                             >
                                 <MenuIcon />
                             </IconButton>
-                            <Typography variant="h6" color="inherit" noWrap>
-                                Mini variant drawer
-            </Typography>
+                     
                         </Toolbar>
                     </AppBar>
                     <Drawer

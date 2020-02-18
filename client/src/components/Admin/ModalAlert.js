@@ -32,8 +32,8 @@ class ModalAlert extends Component {
                     <div>
                         <h1>Attention!</h1>
                         <p>Le medicament sélectioné sera supprimer définitivement!</p>
-                        <button href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
-                        <button className="btn btn-danger" href="javascript:void(0);" onClick={() => {
+                        <button className="cancel" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
+                        <button className="done" href="javascript:void(0);" onClick={() => {
                             this.props.deletemedicaments(this.props.id)
                             this.closeModal()
                         }}>Confirmer</button>
