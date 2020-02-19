@@ -1,13 +1,12 @@
 import { GET_MALADIES } from "../actions/types";
 
-const listMalaidesReducer = (state ={maladies:[]}, action) => {
+const listMaladiesReducer = (state ={maladies:[]}, action) => {
   switch (action.type) {
     case GET_MALADIES:
-      return { ...state, 
-        maladies: action.payload }
+      return { ...state, maladies:action.payload }
     default:
       return state;
   }
 
 }
-export default listMalaidesReducer;
+export default listMaladiesReducer;

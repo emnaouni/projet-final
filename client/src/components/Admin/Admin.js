@@ -36,6 +36,7 @@ import { Link, Switch, Route, BrowserRouter } from 'react-router-dom'
 import './Admin.css';
 import Medecin from "../medecin/Medecin"
 import ListMedicaments from './ListMedicaments'
+import ListMaladies from './ListMaladies'
 
 
 
@@ -129,6 +130,10 @@ class Admin extends React.Component {
                 menuName: "Médicaments",
                 linkItem: "/Admin/ListMedicament"
             },
+            {
+                menuName: "Medecins",
+                linkItem: "/Admin/ListMaladie"
+            },
           
            
         ];
@@ -191,6 +196,9 @@ class Admin extends React.Component {
                         <div className={classes.toolbar} />
                         <Switch>
                             <Route exact path="/Admin/ListMedicament" component={ListMedicaments} />
+                            <Route exact path="/Admin/ListMaladie" component={ListMaladies} />
+
+
                         </Switch>
                     </main>
                 </div>
