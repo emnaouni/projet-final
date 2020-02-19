@@ -22,3 +22,6 @@ export const GET_MEDICAMENTS='GET_MEDICAMENTS'
 
 //maladies
 export const GET_MALADIES='GET_MALADIES'
+
+//patient
+export const GET_PATIENT='GET_PATIENT'

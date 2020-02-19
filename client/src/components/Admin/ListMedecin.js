@@ -15,14 +15,10 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 
 import { compose } from "redux";
-import { getmaladies ,deletemaladies ,updatemaladies} from "../../actions/ListMaladiesActions"
+import { getmedecins } from "../../actions/medicinActions"
 import { connect } from "react-redux"
 import { TableHead } from '@material-ui/core';
-import AddModal from './AddMaladies';
-import EditMaladies from './EditMaladies';
-
-import swal from 'sweetalert';
-import ModalAlertm from './ModalAlertm'
+import ModalAlertmed from './ModalAlertmed'
 
 
 
@@ -126,7 +122,7 @@ const styles = theme => ({
 });
 
 
-class ListMaladies extends React.Component {
+class ListMedecin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -146,10 +142,10 @@ class ListMaladies extends React.Component {
     };
 
     componentWillMount() {
-        this.props.getmaladies();
+        this.props.getmedecins();
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({ rows: nextProps.allmaladies.maladies })
+        this.setState({ rows: nextProps.allmedecins.medecins })
     }
     render() {
         const { classes } = this.props;
@@ -158,7 +154,7 @@ class ListMaladies extends React.Component {
 
         return (
             <div>
-                <div className="addMed"><AddModal/></div>
+           
 
                 <Paper className={classes.root}>
 
@@ -171,15 +167,34 @@ class ListMaladies extends React.Component {
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                     <TableRow key={row._id}>
                                         <TableCell component="th" scope="row">
-                                            {row.NomMaladie}
+                                            {row.Nom}
                                         </TableCell>
-                                     
+                                        <TableCell component="th" scope="row">
+                                            {row.Prenom}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Role}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Email}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.CIN}
+                                        </TableCell>
+                                         <TableCell component="th" scope="row">
+                                            {row.TelephoneCabine}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.AdresseCabinet}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            <ModalAlertmed id={row._id}/>
+                                        </TableCell>
+                                        {/*                                        
                                         <TableCell component="th" scope="row">
                                             <ModalAlertm id={row._id}/>
-                                        </TableCell>
-                                        <TableCell component="th" scope="row">
-                                            <EditMaladies id={row._id} />
-                                        </TableCell>
+                                        </TableCell> */}
+                                      
                                     </TableRow>
                                 ))}
                                 {emptyRows > 0 && (
@@ -214,14 +229,14 @@ class ListMaladies extends React.Component {
     }
 }
 
-ListMaladies.propTypes = {
+ListMedecin.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 const MapStateToProps = state => {
     return {
-        allmaladies: state.maladie
+        allmedecins: state.medecin
     };
 }
 
-export default compose(withStyles(styles), connect(MapStateToProps, {getmaladies ,deletemaladies,updatemaladies}))(ListMaladies);
+export default compose(withStyles(styles), connect(MapStateToProps, {getmedecins }))(ListMedecin);

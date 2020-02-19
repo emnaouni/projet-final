@@ -12,12 +12,6 @@ export const getmedecins = () => dispatch => {
       );
   };
 
-
-
-
-
-
-
   
   export const getNom=(nom)=>{
     return {
@@ -37,3 +31,12 @@ export const getmedecins = () => dispatch => {
             payload: AdresseCabinet
     }
   }
+
+
+  export const deletemedecins = (id) => dispatch => {
+    axios
+      .delete(`/personne/${id}`)
+      .then(
+        dispatch(getmedecins())
+      );
+  };

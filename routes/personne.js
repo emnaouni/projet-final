@@ -35,6 +35,21 @@ router.get("/medecin", (req, res) => {
         .catch(err => console.log(err.message))
 })
 
+//Get all patient
+router.get("/patient", (req, res) => {
+    Personne.find({Role:"patient"})
+        .then(data => {
+            if (!data) {
+                res.json("not found")
+            }
+            else {
+                res.json(data)
+            }
+        })
+
+        .catch(err => console.log(err.message))
+})
+
 // Add Personne
 router.post("/", [
     check("Nom", "Please Enter ur Firstname").not().isEmpty(),

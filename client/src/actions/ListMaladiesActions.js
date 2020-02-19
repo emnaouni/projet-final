@@ -29,3 +29,9 @@ export const getmaladies = () => dispatch => {
       );
   };
   
+  export const updatemaladies = (id, newMaladie) => dispatch => {
+    axios
+    .put(`/maladies/${id}`, newMaladie)
+    .then(dispatch(getmaladies()));
+  };
+  

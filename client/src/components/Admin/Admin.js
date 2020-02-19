@@ -37,6 +37,9 @@ import './Admin.css';
 import Medecin from "../medecin/Medecin"
 import ListMedicaments from './ListMedicaments'
 import ListMaladies from './ListMaladies'
+import ListMedecin from './ListMedecin'
+import ListPatient from './ListPatient'
+
 
 
 
@@ -131,10 +134,17 @@ class Admin extends React.Component {
                 linkItem: "/Admin/ListMedicament"
             },
             {
-                menuName: "Medecins",
+                menuName: "Maladie",
                 linkItem: "/Admin/ListMaladie"
             },
-          
+            {
+                menuName: "Medecin",
+                linkItem: "/Admin/ListMedecin"
+            },
+            {
+                menuName: "Patient",
+                linkItem: "/Admin/ListPatient"
+            },
            
         ];
         return (
@@ -197,6 +207,9 @@ class Admin extends React.Component {
                         <Switch>
                             <Route exact path="/Admin/ListMedicament" component={ListMedicaments} />
                             <Route exact path="/Admin/ListMaladie" component={ListMaladies} />
+                            <Route exact path="/Admin/ListMedecin" component={ListMedecin} />
+                            <Route exact path="/Admin/ListPatient" component={ListPatient} />
+
 
 
                         </Switch>
