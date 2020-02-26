@@ -1,4 +1,5 @@
 .commentMarche{
+    margin-top: 30px;
     width:100% ;
     background-color:white;
 }
@@ -20,6 +21,12 @@
         margin-left: -15px;
         margin-bottom: 7%;
     
+    }
+    .Title-Medecin{
+        text-align: center;
+        color: #079ce1;
+        font-weight: bold;
+        margin-bottom: 45px;
     }
   .info-box-guide1-hover-image {
      

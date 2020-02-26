@@ -8,20 +8,16 @@ const DossierMedicalSchema = mongoose.Schema({
     // required: true
   },
   Id_Maladie: {
-    type: String,
+    type: Array,
     // required: true
   },
   Id_Medicament: {
-    type: String,
+    type: Array,
     // required: true
   },
   Id_Analyse: {
-    type: String,
+    type: Array,
     // required: true
-  },
-  Id_Patient: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "personnes"
   }
  
 }); 

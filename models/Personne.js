@@ -61,6 +61,10 @@ const PersonneSchema = mongoose.Schema({
     type: String,
     required: false
   },
+  Rdv: {
+    type: Array,
+    required: false
+  },
   date: {
     type: Date,
     default: Date.now

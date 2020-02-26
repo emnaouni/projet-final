@@ -2,6 +2,7 @@ export const GET_MEDECINS='GET_MEDECINS'
 export const GET_NAME='GET_MEDECINS'
 export const GET_SPECIALITE='GET_SPECIALITE'
 export const GET_ADRESSECAB='GET_ADRESSECAB'
+export const CLEAR_DOSSIER='CLEAR_DOSSIER'
 
 
 //userlogin
@@ -18,4 +19,15 @@ export const LOGOUT='LOGOUT'
 //alerts
 export const SET_ALERT ="SET_ALERT"
 export const REMOVE_ALERT ="REMOVE_ALERT"
+
+
+//Medicarments
 export const GET_MEDICAMENTS='GET_MEDICAMENTS'
+//Dossier medical
+export const ADD_DOSSIER='ADD_DOSSIER'
+export const ERROR_DOSSIER='ERROR_DOSSIER'
+export const GET_DOSSIER='GET_DOSSIER'
+export const GET_RDV='GET_RDV'
+export const GET_PATIENT='GET_PATIENT'
+
+

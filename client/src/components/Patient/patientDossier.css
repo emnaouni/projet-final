@@ -1,0 +1,27 @@
+.iddossier{
+    color: violet;
+}
+.DossierMEdical{
+    min-height: 100vh;
+    width: 100vw;
+    padding-top: 44px;
+    background-color: #0596de;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+.containerPatient{
+    background-color: #c3b9b9;
+    padding: 52px;
+}
+.containerPatient{
+    width: 90%;
+    padding: 30px;
+}
+.nav-item{
+    color: black !important;
+}
+.tab{
+    padding-top:20px;
+}

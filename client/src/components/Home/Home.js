@@ -9,26 +9,21 @@ import SearchDoctor from '../chercherMedecin/SearchDoctors'
 import Footer from '../footer/Footer'
 import {connect} from 'react-redux'
 import {loadUser} from '../../actions/authActions'
+import HomePaient from './HomePatient'
+import HomeMedecin from './medecin/HomeMedecin'
 class Home extends React.Component{
     componentWillMount() {
         this.props.loadUser()
     }
     
-    render(){return (
+    render(){
+       
+        
+        return (
        <div className="Home">
-       <section className="Section-navBar">
-             <Nabar/>
-           <div className="intoGeneral">
-               <h1 className="BesoinIntro">Besoin d'un professionel de santé?</h1>
-               <img  className="chrono"src={chrono}/>
-           <div className="intro">
-               <p className='introParag'>Avec E-santé, trouvez et prenez rendez-vous avec un médecin, un dentiste, un spécialiste tout de suite.</p>
-                <img className="doc" src={doc}/>
-           </div>
-           </div>
-           </section>
-       <CommentMarche/>
-       <SearchDoctor/>
+  
+       {this.props.auth.user==null ||this.props.auth.user.Role==="patient"||this.props.auth.user.msg === "no token , access denied"? <HomePaient/>: <HomeMedecin/> }
+    
        <Footer/>
     </div>
     );
@@ -36,5 +31,9 @@ class Home extends React.Component{
 }
    
 }
-
-export default connect(null ,{loadUser})(Home);
+const mapStateToProps = state => {
+    return {
+      auth: state.auth
+    }
+  }
+export default connect(mapStateToProps,{loadUser})(Home);

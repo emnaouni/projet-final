@@ -13,6 +13,9 @@ import Compte from './components/medecin/Compte';
 import Register from './components/medecin/Register';
 import  Alert  from './components/Alert/Alert';
 import RegisterPatient from './components/medecin/RegisterPateint'
+import HomeMedecin from './components/Home/medecin/HomeMedecin';
+import PatientDossier from './components/Patient/PatientDossier';
+import Timer from './components/timer/Timer'
 
 
 ReactDOM.render(
@@ -23,10 +26,14 @@ ReactDOM.render(
     <Route exact path="/search/:Nom/:adress/:spec" component={Medecin}/>
     <Route exact path="/" component={Home}/>
     <Route exact path='/Login/:role' component={Compte}/>
-    {/* <Route exact path="/Register" component={Register}/>
-    <Route exact path="/personne/medecin" component={Medecin}/> */}
+    <Route exact path='/timer' component={Timer}/>
+
+  
     <Route exact path="/Register/medecin" component={Register}/>
     <Route exact path="/Register/patient" component={RegisterPatient}/>
+    <Route exact path="/homeMedecin" component={HomeMedecin}/>
+    <Route exact path="/dossiermedical/:CIN" component={PatientDossier}/>
+
     
     </BrowserRouter>
     </Provider>
