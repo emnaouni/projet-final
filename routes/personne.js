@@ -68,7 +68,17 @@ router.get("/medecin", (req, res) => {
 //Get all patient
 router.get("/patient", (req, res) => {
     Personne.find({Role:"patient"})
+    .then(data => {
+        if (!data) {
+            res.json("not found")
+        }
+        else {
+            res.json(data)
+        }
+    })
 
+    .catch(err => console.log(err.message))
+})
 
 //GET liste RDV par medecin 
 router.get("/rdv/:id", (req, res) => {
@@ -167,4 +177,4 @@ router.put("/Rdvpatient/:id", (req, res) => {
 
 });
 
-module.exports = router
+module.exports = router 

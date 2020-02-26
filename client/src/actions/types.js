@@ -4,7 +4,6 @@ export const GET_SPECIALITE='GET_SPECIALITE'
 export const GET_ADRESSECAB='GET_ADRESSECAB'
 export const CLEAR_DOSSIER='CLEAR_DOSSIER'
 
-
 //userlogin
 export const SUCCES_LOGIN='SUCCES_LOGIN'
 export const FAILED_LOGIN='FAILED_LOGIN'
@@ -36,5 +35,5 @@ export const ADD_DOSSIER='ADD_DOSSIER'
 export const ERROR_DOSSIER='ERROR_DOSSIER'
 export const GET_DOSSIER='GET_DOSSIER'
 export const GET_RDV='GET_RDV'
-export const GET_PATIENT='GET_PATIENT'
+
 
