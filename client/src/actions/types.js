@@ -36,5 +36,6 @@ export const ADD_DOSSIER='ADD_DOSSIER'
 export const ERROR_DOSSIER='ERROR_DOSSIER'
 export const GET_DOSSIER='GET_DOSSIER'
 export const GET_RDV='GET_RDV'
-export const GET_PATIENT='GET_PATIENT'
+// export const GET_PATIENT='GET_PATIENT'
+
 

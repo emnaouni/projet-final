@@ -2,6 +2,13 @@ import axios from "axios"
 import { GET_MEDECINS, GET_ADRESSECAB, GET_NAME, GET_SPECIALITE, GET_RDV, GET_PATIENT ,GET_ONEPATIENT} from './types'
 import { GetDossierMedicalPatient } from './dossierMAction'
 
+export const deletemedecins = (id) => dispatch => {
+  axios
+    .delete(`/personne/${id}`)
+    .then(
+      dispatch(getmedecins())
+    );
+};
 export const getmedecins = () => dispatch => {
   return axios
     .get('/personne/medecin')
@@ -11,16 +18,13 @@ export const getmedecins = () => dispatch => {
         payload: res.data
       })
     );
-};
-
-
-  
-  export const getNom=(nom)=>{
-    return {
-           type: GET_NAME,
-            payload: nom
-    }
-
+}; 
+  // export const getNom=(nom)=>{
+  //   return {
+  //          type: GET_NAME,
+  //           payload: nom
+  //   }
+  // }
 export const getPatientId = (CIN) => dispatch => {
   return axios
     .get(`/personne/patienDossier/${CIN}`)
@@ -84,19 +88,12 @@ export const getAdresseCabinet = (AdresseCabinet) => {
     type: GET_ADRESSECAB,
     payload: AdresseCabinet
   }
+}
+  // export const getAdresseCabinet=(AdresseCabinet)=>{
+  //   return {
+  //          type: GET_ADRESSECAB,
+  //           payload: AdresseCabinet
+  //   }
+  // }
 
-  export const getAdresseCabinet=(AdresseCabinet)=>{
-    return {
-           type: GET_ADRESSECAB,
-            payload: AdresseCabinet
-    }
-  }
 
-
-  export const deletemedecins = (id) => dispatch => {
-    axios
-      .delete(`/personne/${id}`)
-      .then(
-        dispatch(getmedecins())
-      );
-  };
