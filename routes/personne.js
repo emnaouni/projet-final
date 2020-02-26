@@ -65,9 +65,15 @@ router.get("/medecin", (req, res) => {
 })
 
 
+//Get all patient
+router.get("/patient", (req, res) => {
+    Personne.find({Role:"patient"})
+
+
 //GET liste RDV par medecin 
 router.get("/rdv/:id", (req, res) => {
     Personne.findById(req.params.id)
+
         .then(data => {
             if (!data) {
                 res.json("not found")
@@ -79,6 +85,7 @@ router.get("/rdv/:id", (req, res) => {
 
         .catch(err => console.log(err.message))
 })
+
 // Add Personne
 router.post("/", [
     check("Nom", "Please Enter ur Firstname").not().isEmpty(),

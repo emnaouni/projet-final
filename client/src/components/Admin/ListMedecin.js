@@ -15,13 +15,10 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 
 import { compose } from "redux";
-import { getmedicaments, deletemedicaments, updatemedicaments } from "../../actions/ListMedicamentActions"
+import { getmedecins } from "../../actions/medicinActions"
 import { connect } from "react-redux"
 import { TableHead } from '@material-ui/core';
-import AddModal from './AddMedicaments';
-import EditMedicaments from './EditMedicaments';
-import swal from 'sweetalert';
-import ModalAlert from './ModalAlert'
+import ModalAlertmed from './ModalAlertmed'
 
 
 
@@ -125,7 +122,7 @@ const styles = theme => ({
 });
 
 
-class ListMedicaments extends React.Component {
+class ListMedecin extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -145,10 +142,10 @@ class ListMedicaments extends React.Component {
     };
 
     componentWillMount() {
-        this.props.getmedicaments();
+        this.props.getmedecins();
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({ rows: nextProps.allmedicaments.medicaments })
+        this.setState({ rows: nextProps.allmedecins.medecins })
     }
     render() {
         const { classes } = this.props;
@@ -157,7 +154,7 @@ class ListMedicaments extends React.Component {
 
         return (
             <div>
-                <div className="addMed"><AddModal /></div>
+           
 
                 <Paper className={classes.root}>
 
@@ -170,18 +167,34 @@ class ListMedicaments extends React.Component {
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                     <TableRow key={row._id}>
                                         <TableCell component="th" scope="row">
-                                            {row.NomMedicament}
+                                            {row.Nom}
                                         </TableCell>
-                                        {/* <TableCell>
-                                            <button variant="primary"  > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)} ></i></button>
+                                        <TableCell component="th" scope="row">
+                                            {row.Prenom}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Role}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Email}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.CIN}
+                                        </TableCell>
+                                         <TableCell component="th" scope="row">
+                                            {row.TelephoneCabine}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.AdresseCabinet}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            <ModalAlertmed id={row._id}/>
+                                        </TableCell>
+                                        {/*                                        
+                                        <TableCell component="th" scope="row">
+                                            <ModalAlertm id={row._id}/>
                                         </TableCell> */}
-                                        <TableCell component="th" scope="row">
-                                            <ModalAlert id={row._id}/>
-                                        </TableCell>
-                                        <TableCell component="th" scope="row">
-                                            {/* <i className="fa fa-edit"></i> */}
-                                            <EditMedicaments id={row._id} />
-                                        </TableCell>
+                                      
                                     </TableRow>
                                 ))}
                                 {emptyRows > 0 && (
@@ -216,14 +229,14 @@ class ListMedicaments extends React.Component {
     }
 }
 
-ListMedicaments.propTypes = {
+ListMedecin.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 const MapStateToProps = state => {
     return {
-        allmedicaments: state.listMedicamentsReducer
+        allmedecins: state.medecin
     };
 }
 
-export default compose(withStyles(styles), connect(MapStateToProps, { getmedicaments, deletemedicaments, updatemedicaments }))(ListMedicaments);
+export default compose(withStyles(styles), connect(MapStateToProps, {getmedecins }))(ListMedecin);

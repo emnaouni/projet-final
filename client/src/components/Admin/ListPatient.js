@@ -15,13 +15,10 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 
 import { compose } from "redux";
-import { getmedicaments, deletemedicaments, updatemedicaments } from "../../actions/ListMedicamentActions"
+import { getpatients } from "../../actions/patientActions"
 import { connect } from "react-redux"
 import { TableHead } from '@material-ui/core';
-import AddModal from './AddMedicaments';
-import EditMedicaments from './EditMedicaments';
-import swal from 'sweetalert';
-import ModalAlert from './ModalAlert'
+import ModalAlertp from './ModalAlertp'
 
 
 
@@ -125,7 +122,7 @@ const styles = theme => ({
 });
 
 
-class ListMedicaments extends React.Component {
+class ListPatient extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -144,11 +141,11 @@ class ListMedicaments extends React.Component {
         this.setState({ page: 0, rowsPerPage: event.target.value });
     };
 
-    componentWillMount() {
-        this.props.getmedicaments();
+    componentDidMount() {
+        this.props.getpatients();
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({ rows: nextProps.allmedicaments.medicaments })
+        this.setState({ rows: nextProps.allpatients.patients })
     }
     render() {
         const { classes } = this.props;
@@ -157,7 +154,7 @@ class ListMedicaments extends React.Component {
 
         return (
             <div>
-                <div className="addMed"><AddModal /></div>
+           
 
                 <Paper className={classes.root}>
 
@@ -170,18 +167,23 @@ class ListMedicaments extends React.Component {
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                     <TableRow key={row._id}>
                                         <TableCell component="th" scope="row">
-                                            {row.NomMedicament}
-                                        </TableCell>
-                                        {/* <TableCell>
-                                            <button variant="primary"  > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)} ></i></button>
-                                        </TableCell> */}
-                                        <TableCell component="th" scope="row">
-                                            <ModalAlert id={row._id}/>
+                                            {row.Nom}
                                         </TableCell>
                                         <TableCell component="th" scope="row">
-                                            {/* <i className="fa fa-edit"></i> */}
-                                            <EditMedicaments id={row._id} />
+                                            {row.Prenom}
                                         </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Role}
+                                        </TableCell>
+                                        <TableCell component="th" scope="row">
+                                            {row.Adress}
+                                        </TableCell>
+                                    
+                                                                               
+                                        <TableCell component="th" scope="row">
+                                            <ModalAlertp id={row._id}/>
+                                        </TableCell>
+                                      
                                     </TableRow>
                                 ))}
                                 {emptyRows > 0 && (
@@ -216,14 +218,14 @@ class ListMedicaments extends React.Component {
     }
 }
 
-ListMedicaments.propTypes = {
+ListPatient.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 const MapStateToProps = state => {
     return {
-        allmedicaments: state.listMedicamentsReducer
+        allpatients: state.patient
     };
 }
 
-export default compose(withStyles(styles), connect(MapStateToProps, { getmedicaments, deletemedicaments, updatemedicaments }))(ListMedicaments);
+export default compose(withStyles(styles), connect(MapStateToProps, {getpatients}))(ListPatient);

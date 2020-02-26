@@ -23,11 +23,18 @@ export const REMOVE_ALERT ="REMOVE_ALERT"
 
 //Medicarments
 export const GET_MEDICAMENTS='GET_MEDICAMENTS'
+
+
+//maladies
+export const GET_MALADIES='GET_MALADIES'
+
+//patient
+export const GET_PATIENT='GET_PATIENT'
+
 //Dossier medical
 export const ADD_DOSSIER='ADD_DOSSIER'
 export const ERROR_DOSSIER='ERROR_DOSSIER'
 export const GET_DOSSIER='GET_DOSSIER'
 export const GET_RDV='GET_RDV'
 export const GET_PATIENT='GET_PATIENT'
-
 

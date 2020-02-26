@@ -15,13 +15,14 @@ import KeyboardArrowRight from '@material-ui/icons/KeyboardArrowRight';
 import LastPageIcon from '@material-ui/icons/LastPage';
 
 import { compose } from "redux";
-import { getmedicaments, deletemedicaments, updatemedicaments } from "../../actions/ListMedicamentActions"
+import { getmaladies ,deletemaladies ,updatemaladies} from "../../actions/ListMaladiesActions"
 import { connect } from "react-redux"
 import { TableHead } from '@material-ui/core';
-import AddModal from './AddMedicaments';
-import EditMedicaments from './EditMedicaments';
+import AddModal from './AddMaladies';
+import EditMaladies from './EditMaladies';
+
 import swal from 'sweetalert';
-import ModalAlert from './ModalAlert'
+import ModalAlertm from './ModalAlertm'
 
 
 
@@ -125,7 +126,7 @@ const styles = theme => ({
 });
 
 
-class ListMedicaments extends React.Component {
+class ListMaladies extends React.Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -145,10 +146,10 @@ class ListMedicaments extends React.Component {
     };
 
     componentWillMount() {
-        this.props.getmedicaments();
+        this.props.getmaladies();
     }
     componentWillReceiveProps(nextProps) {
-        this.setState({ rows: nextProps.allmedicaments.medicaments })
+        this.setState({ rows: nextProps.allmaladies.maladies })
     }
     render() {
         const { classes } = this.props;
@@ -157,7 +158,7 @@ class ListMedicaments extends React.Component {
 
         return (
             <div>
-                <div className="addMed"><AddModal /></div>
+                <div className="addMed"><AddModal/></div>
 
                 <Paper className={classes.root}>
 
@@ -170,17 +171,14 @@ class ListMedicaments extends React.Component {
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                     <TableRow key={row._id}>
                                         <TableCell component="th" scope="row">
-                                            {row.NomMedicament}
+                                            {row.NomMaladie}
                                         </TableCell>
-                                        {/* <TableCell>
-                                            <button variant="primary"  > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)} ></i></button>
-                                        </TableCell> */}
+                                     
                                         <TableCell component="th" scope="row">
-                                            <ModalAlert id={row._id}/>
+                                            <ModalAlertm id={row._id}/>
                                         </TableCell>
                                         <TableCell component="th" scope="row">
-                                            {/* <i className="fa fa-edit"></i> */}
-                                            <EditMedicaments id={row._id} />
+                                            <EditMaladies id={row._id} />
                                         </TableCell>
                                     </TableRow>
                                 ))}
@@ -216,14 +214,14 @@ class ListMedicaments extends React.Component {
     }
 }
 
-ListMedicaments.propTypes = {
+ListMaladies.propTypes = {
     classes: PropTypes.object.isRequired,
 };
 
 const MapStateToProps = state => {
     return {
-        allmedicaments: state.listMedicamentsReducer
+        allmaladies: state.maladie
     };
 }
 
-export default compose(withStyles(styles), connect(MapStateToProps, { getmedicaments, deletemedicaments, updatemedicaments }))(ListMedicaments);
+export default compose(withStyles(styles), connect(MapStateToProps, {getmaladies ,deletemaladies,updatemaladies}))(ListMaladies);

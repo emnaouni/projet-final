@@ -93,5 +93,5 @@ const mapStateToProps = state => {
   }
 }
 
-export default connect(mapStateToProps,{logout,clearDossier})(Nabar);
 
+export default connect(mapStateToProps,{logout,clearDossier})(Nabar);

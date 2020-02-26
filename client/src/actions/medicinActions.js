@@ -13,6 +13,14 @@ export const getmedecins = () => dispatch => {
     );
 };
 
+
+  
+  export const getNom=(nom)=>{
+    return {
+           type: GET_NAME,
+            payload: nom
+    }
+
 export const getPatientId = (CIN) => dispatch => {
   return axios
     .get(`/personne/patienDossier/${CIN}`)
@@ -76,4 +84,19 @@ export const getAdresseCabinet = (AdresseCabinet) => {
     type: GET_ADRESSECAB,
     payload: AdresseCabinet
   }
-}
+
+  export const getAdresseCabinet=(AdresseCabinet)=>{
+    return {
+           type: GET_ADRESSECAB,
+            payload: AdresseCabinet
+    }
+  }
+
+
+  export const deletemedecins = (id) => dispatch => {
+    axios
+      .delete(`/personne/${id}`)
+      .then(
+        dispatch(getmedecins())
+      );
+  };

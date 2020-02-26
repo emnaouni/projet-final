@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { connect } from 'react-redux';
-import { deletemedicaments } from "../../actions/ListMedicamentActions"
+import { deletemedecins } from "../../actions/medicinActions"
 
  
-class ModalAlert extends Component {
+class ModalAlertmed extends Component {
     constructor(props) {
         super(props);
         this.state = {
@@ -34,7 +34,7 @@ class ModalAlert extends Component {
                         <p>Le medicament sélectioné sera supprimer définitivement!</p>
                         <button className="cancel" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
                         <button className="done" href="javascript:void(0);" onClick={() => {
-                            this.props.deletemedicaments(this.props.id)
+                            this.props.deletemedecins(this.props.id)
                             this.closeModal()
                         }}>Confirmer</button>
                     </div>
@@ -44,4 +44,4 @@ class ModalAlert extends Component {
     }
 }
 
-export default connect(null, { deletemedicaments })(ModalAlert)
+export default connect(null, { deletemedecins })(ModalAlertmed)
