@@ -1,3 +1,10 @@
+.DoctorsList{
+    margin: auto;
+    width: 50%;
+    margin-top: 80px;
+    margin-bottom: 50px;
+}
+
 .doctorItem{
     font-family: Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
     font-size: x-large;
@@ -6,13 +13,38 @@
     padding: 20px;
     margin: 30px;
     color:black;
-    margin-top: 150px;
+    /* margin-top: 150px; */
 
     
 }
-.doctorCard{
+.modal-body {
+margin: auto!important;
+}
+.modal-footer {
+    margin: auto!important;    
+}
+#buttonRDV{
+    padding: 10px;
+}
+.NameChecked{
     display: flex;
-    justify-content: space-around;
+    align-items: center;
+}
+#iconeCheked{
+    margin-left: 10px;
+    color: #05A31C !important;
+    font-size: 18px;
+}
+.doctorCard{
+    border: solid 0.4px;
+    display: flex;
+    align-items: center;
+    /* justify-content: space-between; */
+    margin-top: 10px;
+    border-radius: 12px;
+    /* width: 69%; */
+    border-color: gray;
+    padding: 0px 8px 0px 53px;
 }
 .specialit{
     color: blue;
@@ -23,3 +55,20 @@
 .img-doc{
     width: 20%;
 }
+#img-adress{
+    width: 22px!important;
+    height: 22px!important;
+    /* margin-top: -10px!important; */
+    border-radius: 49%!important;
+    margin-right: 6px;
+}
+
+#imgDoc{
+    width: 95px!important;
+    height: 95px !important;
+    border-radius: 100%!important;
+}
+.AdrresseDoc{
+    display: flex;
+}
+

@@ -10,6 +10,7 @@ import {connect} from "react-redux"
 import {registerPatient,ClearError} from '../../actions/authActions'
 import {removeAlert,setAlert } from '../../actions/AlertActions'
 import { withRouter } from "react-router-dom"
+import {addDossierMedical} from '../../actions/dossierMAction'
 import uuid from 'uuid'
 const styles = theme => ({
   root: {
@@ -156,7 +157,10 @@ registerNow=()=>{
 }
 componentWillReceiveProps(nextProps) {
   if(nextProps.auth.isAuthenticated){
-      this.props.history.push('/')
+    setTimeout(() => {
+      this.props.addDossierMedical()
+    }, 100)
+    this.props.history.push('/')
   }
   if(nextProps.auth.error ==='User already exist!!'){
       let id = uuid()
@@ -220,4 +224,4 @@ const mapStateToProps = state => {
       auth: state.auth
   }
 }
-export default connect(mapStateToProps,{setAlert,removeAlert,registerPatient,ClearError})(withStyles(styles)(withRouter(RegisterStepper)));
+export default connect(mapStateToProps,{setAlert,removeAlert,registerPatient,ClearError , addDossierMedical})(withStyles(styles)(withRouter(RegisterStepper)));

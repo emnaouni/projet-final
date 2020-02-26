@@ -5,5 +5,8 @@ import alertReducer from '../reducers/AlertReducer'
 import listMedicamentsReducer from '../reducers/listMedicamentsReducer'
 import listMaladiesReducer from '../reducers/listMaladiesReducer'
 import patientReducer from '../reducers/patientReducer'
+import DossierReducer from '../reducers/DossierMedicalReducer'
 
-export default combineReducers({medecin:medecinReducer,auth:authReducer, alert:alertReducer, listMedicamentsReducer , maladie:listMaladiesReducer,patient:patientReducer})
+
+export default combineReducers({medecin:medecinReducer,auth:authReducer, alert:alertReducer, listMedicamentsReducer , maladie:listMaladiesReducer,patient:patientReducer,dossierPatient:DossierReducer})
+

@@ -6,10 +6,10 @@ const mongoose = require('mongoose')
 
 const Visite = require("../models/visite");
 
-//Get dossier medical patient for doctor
+//Get dossier medical patient for patient
 
 
-router.get("/patient", auth, (req, res) => {
+router.get("/patientDossier", auth, (req, res) => {
     let id = mongoose.Types.ObjectId(req.user.id)
     console.log(req.user.id)
     dossierMedical.findOne({Id_Patient: id })
@@ -28,9 +28,9 @@ router.get("/patient", auth, (req, res) => {
 })
 
 
-//Get dossiermedical medecin
+//Get dossiermedical for  medecin
 router.get("/patient/:id", (req, res) => {
-    dossierMedical.findOne({ Id_Patient:req.params.id})
+    dossierMedical.findOne({Id_Patient:req.params.id})
 
         .then(data => {
             if (!data) {
@@ -43,7 +43,6 @@ router.get("/patient/:id", (req, res) => {
 
         .catch(err => console.log(err.message))
 })
-
 //Get All Cons byDoctor
 
 

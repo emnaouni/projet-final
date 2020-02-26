@@ -6,6 +6,35 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 const jwtSecrect = "secret"
+//GetPAtient with CIN
+router.get("/patienDossier/:CIN", (req, res) => {
+    Personne.findOne({CIN:req.params.CIN})
+
+        .then(data => {
+            if (!data) {
+                res.json("not found Patient!!!!!!!!!!!!!")
+            }
+            else {
+                res.json(data)
+            }
+        })
+
+        .catch(err => console.log(err.message))
+})
+
+router.get("/patienDossierr/:id", (req, res) => {
+    Personne.findById(req.params.id)
+      .then(data => {
+            if (!data) {
+                res.json("not found Patient!!!!!!!!!!!!!")
+            }
+            else {
+                res.json(data)
+            }
+        })
+
+        .catch(err => console.log(err.message))
+})
 //Get all Personnes
 router.get("/", (req, res) => {
     Personne.find({})
@@ -35,9 +64,16 @@ router.get("/medecin", (req, res) => {
         .catch(err => console.log(err.message))
 })
 
+
 //Get all patient
 router.get("/patient", (req, res) => {
     Personne.find({Role:"patient"})
+
+
+//GET liste RDV par medecin 
+router.get("/rdv/:id", (req, res) => {
+    Personne.findById(req.params.id)
+
         .then(data => {
             if (!data) {
                 res.json("not found")
@@ -112,6 +148,18 @@ router.delete("/:id", (req, res) => {
 router.put("/:id", (req, res) => {
     const pers = req.body
     Personne.findByIdAndUpdate(req.params.id, pers)
+        .then(() => Personne.findById(req.params.id)
+            .then(data => res.json(data))
+        )
+        .catch(err => console.log(err.message))
+
+});
+
+
+//put RDV
+router.put("/Rdvpatient/:id", (req, res) => {
+    const daterdv = req.body
+    Personne.findByIdAndUpdate(req.params.id,{$push:{Rdv:daterdv}})
         .then(() => Personne.findById(req.params.id)
             .then(data => res.json(data))
         )
