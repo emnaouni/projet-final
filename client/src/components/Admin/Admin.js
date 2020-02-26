@@ -1,16 +1,3 @@
-// import React, { Component } from "react";
-// import { Link } from 'react-router-dom'
-
-// const Admin = () => {
-//     return (
-//         <div >
-
-//         </div>
-//      );
-//  }
-
-// export default Admin;
-
 import React from 'react';
 import PropTypes from 'prop-types';
 import classNames from 'classnames';
@@ -39,6 +26,13 @@ import ListMedicaments from './ListMedicaments'
 import ListMaladies from './ListMaladies'
 import ListMedecin from './ListMedecin'
 import ListPatient from './ListPatient'
+import Button from '@material-ui/core/Button'
+import {logout} from '../../actions/authActions'
+import { compose } from "redux"
+import { connect } from "react-redux"
+
+
+
 
 
 
@@ -111,6 +105,7 @@ class Admin extends React.Component {
     state = {
         open: false,
     };
+ 
 
     handleDrawerOpen = () => {
         this.setState({ open: true });
@@ -157,6 +152,8 @@ class Admin extends React.Component {
                             [classes.appBarShift]: this.state.open,
                         })}
                     >
+
+                        
                         <Toolbar disableGutters={!this.state.open}>
                             <IconButton
                                 color="inherit"
@@ -168,6 +165,17 @@ class Admin extends React.Component {
                             >
                                 <MenuIcon />
                             </IconButton>
+                     
+                        </Toolbar>
+
+
+                        <Toolbar disableGutters={!this.state.open}>
+                        <Button variant="outlined"  onClick={()=> {
+                            this.props.logout()
+                            this.props.history.push('/Admin/Login')
+                            }} className={classes.button}>
+        logout
+             </Button>
                      
                         </Toolbar>
                     </AppBar>
@@ -225,4 +233,13 @@ Admin.propTypes = {
     theme: PropTypes.object.isRequired,
 };
 
-export default withStyles(styles, { withTheme: true })(Admin);
+
+const mapStateToProps = state => {
+  return {
+    auth: state.auth
+  }
+}
+
+
+export default  connect(mapStateToProps,{logout })(withStyles(styles, {withTheme : true })(Admin));
+
