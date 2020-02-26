@@ -1,12 +1,12 @@
 import axios from "axios"
-import {GET_MALADIES} from './types'
+// import {GET_MALADIES} from './types'
 
 export const getmaladies = () => dispatch => {
     return axios
       .get('/maladies')
       .then(res => 
         dispatch({
-          type: GET_MALADIES,
+          type: "GET_MALADIES",
           payload: res.data
         })
       );

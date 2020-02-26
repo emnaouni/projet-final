@@ -66,6 +66,7 @@ router.get("/medecin", (req, res) => {
 
 
 //Get all patient
+
 router.get("/patient", (req, res) => {
     Personne.find({Role:"patient"})
     .then(data => {
