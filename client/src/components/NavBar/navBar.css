@@ -9,11 +9,27 @@ a {
     /* position: fixed; */
     width: 100%;
     margin-top: 0;
+    position: fixed;
+    left: 0%;
+    top: 0%;
+    right: 0%;
+    bottom: auto;
+    z-index: 999;
+    padding-top: 16px;
+    padding-bottom: 16px;
+    /* background-color: green; */
+    -webkit-transition: background-color 300ms ease;
+    transition: background-color 300ms ease;
 }
-.navbar-brand{
+
+.nav-colored {   background-color: #32afff; }
+nav-blanc {
+    background-color: #32afff!important;
+}
+/* .nav-transparent { background-color:transparent;} */
+/* .navbar-brand{
     margin: 0 !important;
     padding: 1.5rem 1rem;
-}
-.Navbar {
-    position: relative;
-}
+  
+
+} */

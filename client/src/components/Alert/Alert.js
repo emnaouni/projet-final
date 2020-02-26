@@ -1,6 +1,7 @@
 import React from 'react';
 import {connect} from 'react-redux'
 import{ Alert} from 'react-bootstrap'
+import './alert.css'
 const Alerts = (props) => {
     return (
         props.alerts.length >0 && props.alerts.map(alert=>(

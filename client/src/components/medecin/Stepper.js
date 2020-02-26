@@ -160,7 +160,7 @@ registerNow=()=>{
 }
 componentWillReceiveProps(nextProps) {
   if(nextProps.auth.isAuthenticated){
-      this.props.history.push('/')
+      this.props.history.push('/homeMedecin')
   }
   if(nextProps.auth.error ==='User already exist!!'){
       let id = uuid()
