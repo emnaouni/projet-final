@@ -18,13 +18,17 @@ export const getmedecins = () => dispatch => {
         payload: res.data
       })
     );
-}; 
-  // export const getNom=(nom)=>{
-  //   return {
-  //          type: GET_NAME,
-  //           payload: nom
-  //   }
-  // }
+
+};
+
+
+  
+  export const getNom=(nom)=>{
+    return {
+           type: GET_NAME,
+            payload: nom
+    }
+  }
 export const getPatientId = (CIN) => dispatch => {
   return axios
     .get(`/personne/patienDossier/${CIN}`)
@@ -71,12 +75,12 @@ export const getRDV = (id) => dispatch => {
 };
 
 
-export const getNom = (nom) => {
-  return {
-    type: GET_NAME,
-    payload: nom
-  }
-}
+// export const getNom = (nom) => {
+//   return {
+//     type: GET_NAME,
+//     payload: nom
+//   }
+// }
 export const getSpecialite = (specialite) => {
   return {
     type: GET_SPECIALITE,
@@ -96,4 +100,12 @@ export const getAdresseCabinet = (AdresseCabinet) => {
   //   }
   // }
 
+
+  export const deletemedecins = (id) => dispatch => {
+    axios
+      .delete(`/personne/${id}`)
+      .then(
+        dispatch(getmedecins())
+      );
+  };
 
