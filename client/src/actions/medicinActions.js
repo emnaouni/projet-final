@@ -101,11 +101,4 @@ export const getAdresseCabinet = (AdresseCabinet) => {
   // }
 
 
-  export const deletemedecins = (id) => dispatch => {
-    axios
-      .delete(`/personne/${id}`)
-      .then(
-        dispatch(getmedecins())
-      );
-  };
 

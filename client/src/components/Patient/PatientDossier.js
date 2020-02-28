@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import './patientDossier.css'
 import { getPatientId} from '../../actions/medicinActions'
 import { connect } from "react-redux";
-import { Tab, Tabs } from 'react-bootstrap'
+import { Tab, Tabs ,Button} from 'react-bootstrap'
 
 
 class PatientDossier extends Component {
@@ -31,13 +31,19 @@ class PatientDossier extends Component {
            
             <Tab eventKey={1} title="Médicaments" className="tab">
               <h6>Liste des medicaments</h6>
+              <input type ="text" value ="" name="medicament"/>
+              <Button variant="outline-primary">Ajouter</Button>{' '}
             </Tab>
             <Tab eventKey={2} title="Maladies" className="tab">
               <h6>Liste des maladies</h6>
+              <input type ="text" value ="" name="maladie"/>
+
 
             </Tab>
             <Tab eventKey={3} title="Analyses" className="tab">
               <h6>Liste des Analyses</h6>
+              <input type ="text" value ="" name="analyse"/>
+
 
             </Tab>
           </Tabs>
