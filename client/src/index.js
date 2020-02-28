@@ -17,13 +17,13 @@ import LogAdmin from './components/Admin/LogAdmin';
 import HomeMedecin from './components/Home/medecin/HomeMedecin';
 import PatientDossier from './components/Patient/PatientDossier';
 import Timer from './components/timer/Timer'
-
+import PrivateRoute from './components/PrivateRoute'
 
 ReactDOM.render(
     <Provider store={store}>
     <BrowserRouter>
     <Alert/>
-    <Route exact path="/Admin" component={Admin} />
+    <PrivateRoute exact path="/Admin" component={Admin} />
     <Route exact path="/search/:Nom/:adress/:spec" component={Medecin}/>
     <Route exact path="/" component={Home}/>
     <Route exact path='/Login/:role' component={Compte}/>

@@ -9,6 +9,7 @@ export const deletemedecins = (id) => dispatch => {
       dispatch(getmedecins())
     );
 };
+
 export const getmedecins = () => dispatch => {
   return axios
     .get('/personne/medecin')
@@ -101,11 +102,4 @@ export const getAdresseCabinet = (AdresseCabinet) => {
   // }
 
 
-  export const deletemedecins = (id) => dispatch => {
-    axios
-      .delete(`/personne/${id}`)
-      .then(
-        dispatch(getmedecins())
-      );
-  };
-
+ 
