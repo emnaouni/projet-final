@@ -9,6 +9,7 @@ export const deletemedecins = (id) => dispatch => {
       dispatch(getmedecins())
     );
 };
+
 export const getmedecins = () => dispatch => {
   return axios
     .get('/personne/medecin')
