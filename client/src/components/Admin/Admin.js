@@ -27,7 +27,7 @@ import ListMaladies from './ListMaladies'
 import ListMedecin from './ListMedecin'
 import ListPatient from './ListPatient'
 import Button from '@material-ui/core/Button'
-import {logout} from '../../actions/authActions'
+import {logout , loadUser} from '../../actions/authActions'
 import { compose } from "redux"
 import { connect } from "react-redux"
 
@@ -105,7 +105,12 @@ class Admin extends React.Component {
     state = {
         open: false,
     };
- 
+    componentDidMount(){
+        if(this.props.auth.token){
+            this.props.loadUser()
+        }
+            
+    }
 
     handleDrawerOpen = () => {
         this.setState({ open: true });
@@ -241,5 +246,5 @@ const mapStateToProps = state => {
 }
 
 
-export default  connect(mapStateToProps,{logout })(withStyles(styles, {withTheme : true })(Admin));
+export default  connect(mapStateToProps,{logout , loadUser})(withStyles(styles, {withTheme : true })(Admin));
 
