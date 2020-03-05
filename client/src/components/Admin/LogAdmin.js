@@ -59,34 +59,16 @@ class LogAdmin extends Component {
   render() {
     return (
       <div >
-        {/* <div className="login">
-                    <h2 className="connecter">Me connecter</h2>
-                    <p className="adress">Adresse e-mail</p>
-                    <input className="inp" name="Email" type="text" onChange={this.handelChange}/>
-                    <p className="adress">Mot de passe</p>
-                    <input className="inp" name="password" type="text" onChange={this.handelChange}/>
-                    <button className="btn" onClick={this.LoginNow}>Continuer</button>
-                </div> */}
+   
 
 
         <div className="login-wrap">
           <div className="login-html">
             <input id="tab-1" type="radio" name="tab" class="sign-in" checked /><label for="tab-1" class="tab">Me connecter</label>
-            <input id="tab-2" type="radio" name="tab" class="sign-up" /><label for="tab-2" class="tab">S'inscrire</label>
+            <input id="tab-2" type="radio" name="tab" class="sign-up" /><label for="tab-2" class="tab"></label>
             <div className="login-form">
               <div className="sign-in-htm">
-                {/* <div className="group">
-                  <label for="user" className="label" name="Email" >Username</label>
-                  <input id="user" type="text" className="input" onChange={this.handelChange} />
-                </div>
-                <div className="group">
-                  <label for="pass" className="label">Password</label>
-                  <input id="pass" type="password" className="input" data-type="password" onChange={this.handelChange} />
-                </div>
-
-                <div className="group">
-                  <input type="submit" className="button" value="Sign In" onClick={this.LoginNow} />
-                </div> */}
+              
                 <div className="group">
                   <label for="user" className="label" name="Email" >Adresse mail</label>
                   <input id="user" name="Email" type="text" className="input" onChange={this.handelChange} />

@@ -31,9 +31,9 @@ class ModalAlertm extends Component {
                 <Modal visible={this.state.visible} width="400" height="300" effect="fadeInUp" onClickAway={() => this.closeModal()}>
                     <div>
                         <h1>Attention!</h1>
-                        <p>Le medicament sélectioné sera supprimer définitivement!</p>
-                        <button className="cancel" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
-                        <button className="done" href="javascript:void(0);" onClick={() => {
+                        <h6>La maladie sélectioné sera supprimer définitivement!</h6>
+                        <button class="form-btn sx back" href="javascript:void(0);" onClick={() => this.closeModal()}>Close</button>
+                        <button class="form-btn dx" href="javascript:void(0);" onClick={() => {
                             this.props.deletemaladies(this.props.id)
                             this.closeModal()
                         }}>Confirmer</button>

@@ -164,22 +164,22 @@ class ListMedicaments extends React.Component {
                     <div className={classes.tableWrapper}>
                         <Table className={classes.table}>
                             <TableHead>
-
+                            <TableCell>Nom medicament </TableCell>
+                             <TableCell>Supprimer</TableCell>
+                            <TableCell >Editer</TableCell>
                             </TableHead>
                             <TableBody>
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (
                                     <TableRow key={row._id}>
+
                                         <TableCell component="th" scope="row">
                                             {row.NomMedicament}
                                         </TableCell>
-                                        {/* <TableCell>
-                                            <button variant="primary"  > <i className="fa fa-trash" onClick={() => this.props.deletemedicaments(row._id)} ></i></button>
-                                        </TableCell> */}
+                                       
                                         <TableCell component="th" scope="row">
                                             <ModalAlert id={row._id}/>
                                         </TableCell>
                                         <TableCell component="th" scope="row">
-                                            {/* <i className="fa fa-edit"></i> */}
                                             <EditMedicaments id={row._id} />
                                         </TableCell>
                                     </TableRow>

@@ -149,6 +149,7 @@ class Admin extends React.Component {
         ];
         return (
             <BrowserRouter>
+            <div>
                 <div className={classes.root}>
                     <CssBaseline />
                     <AppBar
@@ -158,7 +159,8 @@ class Admin extends React.Component {
                         })}
                     >
 
-                        
+                      <div className="all"> 
+                        <div>
                         <Toolbar disableGutters={!this.state.open}>
                             <IconButton
                                 color="inherit"
@@ -172,17 +174,19 @@ class Admin extends React.Component {
                             </IconButton>
                      
                         </Toolbar>
-
-
+                        </div> 
+                        <div className="logout">
                         <Toolbar disableGutters={!this.state.open}>
                         <Button variant="outlined"  onClick={()=> {
                             this.props.logout()
                             this.props.history.push('/Admin/Login')
                             }} className={classes.button}>
-        logout
-             </Button>
-                     
-                        </Toolbar>
+                         Se déconnecter
+
+                       </Button>
+                       </Toolbar>
+                       </div>
+                       </div> 
                     </AppBar>
                     <Drawer
                         variant="permanent"
@@ -208,7 +212,7 @@ class Admin extends React.Component {
                             {MenuItems.map((el, index) => (
                                 <Link key={index} to={el.linkItem}>
                                     <ListItem button key={el.menuName}>
-                                        <ListItemIcon>{index % 2 === 0 ? <InboxIcon /> : <MailIcon />}</ListItemIcon>
+                                        <ListItemIcon>{<InboxIcon/>}</ListItemIcon>
                                         <ListItemText primary={el.menuName} />
                                     </ListItem>
                                 </Link>
@@ -227,6 +231,7 @@ class Admin extends React.Component {
 
                         </Switch>
                     </main>
+                </div>
                 </div>
             </BrowserRouter>
         );

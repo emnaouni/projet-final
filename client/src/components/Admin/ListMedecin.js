@@ -161,6 +161,14 @@ class ListMedecin extends React.Component {
                     <div className={classes.tableWrapper}>
                         <Table className={classes.table}>
                             <TableHead>
+                            <TableCell>Nom medecin </TableCell>
+                             <TableCell>Prénom medecin</TableCell>
+                            <TableCell >Email</TableCell>
+                            <TableCell >CIN</TableCell>
+                            <TableCell >Telephone Cabinet</TableCell>
+                            <TableCell >Adresse Cabinet</TableCell>
+                            <TableCell >Supprimer</TableCell>
+
 
                             </TableHead>
                             <TableBody>
@@ -172,9 +180,7 @@ class ListMedecin extends React.Component {
                                         <TableCell component="th" scope="row">
                                             {row.Prenom}
                                         </TableCell>
-                                        <TableCell component="th" scope="row">
-                                            {row.Role}
-                                        </TableCell>
+                                    
                                         <TableCell component="th" scope="row">
                                             {row.Email}
                                         </TableCell>
