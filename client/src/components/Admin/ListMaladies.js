@@ -165,7 +165,9 @@ class ListMaladies extends React.Component {
                     <div className={classes.tableWrapper}>
                         <Table className={classes.table}>
                             <TableHead>
-
+                            <TableCell>Nom maladie </TableCell>
+                             <TableCell>Supprimer</TableCell>
+                            <TableCell >Editer</TableCell>
                             </TableHead>
                             <TableBody>
                                 {rows.slice(page * rowsPerPage, page * rowsPerPage + rowsPerPage).map(row => (

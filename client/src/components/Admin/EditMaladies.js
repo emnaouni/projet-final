@@ -49,10 +49,10 @@ componentDidMount(){
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleShow}>
+            <Button variant="secondary buttonm" onClick={this.handleShow}>
               Close
             </Button>
-            <Button onClick={this.edit} variant="primary" >
+            <Button onClick={this.edit} variant="primary buttonm" >
               Edit Maladie
             </Button>
           </Modal.Footer>
