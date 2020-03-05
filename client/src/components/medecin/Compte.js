@@ -66,11 +66,11 @@ import uuid from 'uuid'
                     <p className="adress">Adresse e-mail</p>
                     <input className="inp" name="Email" type="text" onChange={this.handelChange}/>
                     <p className="adress">Mot de passe</p>
-                    <input className="inp" name="password" type="text" onChange={this.handelChange}/>
+                    <input className="inp" name="password" type="password" onChange={this.handelChange}/>
                     <p className="mot-pass">Mot de passe oublié</p>
                     <button className="btn" onClick={this.LoginNow}>Continuer</button>
                     <p className="encore">vous n'avez pas encore de compte ?</p>
-                    <p id="cree" ><Link id="cree"to={`/Register/${this.props.match.params.role}`}>Créez un compte ici</Link></p>
+                    <p id="cree" ><Link id="cree"to={`/Register/medecin`}>Créez un compte ici</Link></p>
                 </div>
                 
             </div>

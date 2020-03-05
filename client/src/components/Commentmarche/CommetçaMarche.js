@@ -9,7 +9,7 @@ import guide3Hover from '../../images/patient-search-guide3_hover.png'
 import './comment.css'
 const CommetçaMarche = () => {
     return (<section className="commentMarche" >
-                <div className="container" id="info-row">
+                <div className="containerr" id="info-row">
                     <h3 className="Title-Medecin">Comment ça marche ?</h3>
                     <div className="boxs">
                         <div className="info-box-guide1">

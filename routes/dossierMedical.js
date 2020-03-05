@@ -5,6 +5,7 @@ const dossierMedical = require("../models/DossierMedical");
 const mongoose = require('mongoose')
 
 const Visite = require("../models/visite");
+const Personne =require("../models/Personne")
 
 //Get dossier medical patient for patient
 
@@ -74,8 +75,39 @@ router.delete("/:id", (req, res) => {
 
 });
 
+//ADD Medicament
+router.put("/dossierMedicament/:id", (req, res) => {
+    const newMedicament = req.body
+    
+    dossierMedical.findByIdAndUpdate(req.params.id,{$push:{Id_Medicament:newMedicament}})
+        .then(() =>  dossierMedical.findById(req.params.id)
+            .then(data => res.json(data))
+        )
+        .catch(err => console.log(err.message))
 
+});
+//ADD Analyse
+router.put("/DossierAnalyse/:id", (req, res) => {
+    const newAnalyse= req.body
+    
+    dossierMedical.findByIdAndUpdate(req.params.id,{$push:{Id_Analyse:newAnalyse}})
+        .then(() => Personne.findById(req.params.id)
+            .then(data => res.json(data))
+        )
+        .catch(err => console.log(err.message))
 
+});
+//ADD Maladie
+router.put("/DossierMaladie/:id", (req, res) => {
+    const newMaladie = req.body
+    
+    dossierMedical.findByIdAndUpdate(req.params.id,{$push:{Id_Maladie:newMaladie}})
+        .then(() => Personne.findById(req.params.id)
+            .then(data => res.json(data))
+        )
+        .catch(err => console.log(err.message))
+
+});
 //Update DossierMedical
 router.put("/:id",auth, (req, res) => {
     const des = req.body
