@@ -7,7 +7,13 @@ import { Link } from "react-router-dom"
 import { connect } from 'react-redux'
 import {logout} from '../../actions/authActions'
 import {clearDossier} from '../../actions/dossierMAction'
+import {loadUser} from '../../actions/authActions'
+
 class Nabar extends React.Component {
+
+  componentWillMount() {
+    this.props.loadUser()
+}
   userConnectedPatient = () => {
     return (<Navbar id="nav" className="primary nav-blanc" variant="dark">
       <Navbar.Brand href="#home"><Link to={'/'}> <img src={logo} alt="logo" /> </Link> </Navbar.Brand>
@@ -23,7 +29,7 @@ class Nabar extends React.Component {
     return (<Navbar id="nav"className="primary nav-blanc" variant="dark">
       <Navbar.Brand><Link to={`/Login/${medecin}`}> Vous êtes un medecin?  </Link></Navbar.Brand> 
       <Navbar.Brand href="#home"><Link to={'/'}> <img src={logo} alt="logo" /> </Link> </Navbar.Brand>
-      <Navbar.Brand href="#home"><Link to={`/Login/${patient}`}> Mon compte </Link> </Navbar.Brand>
+      <Navbar.Brand href="#home"><Link to={`/Login/patient/${patient}`}> Mon compte </Link> </Navbar.Brand>
 
     </Navbar>)
 
@@ -94,4 +100,4 @@ const mapStateToProps = state => {
 }
 
 
-export default connect(mapStateToProps,{logout,clearDossier})(Nabar);
+export default connect(mapStateToProps,{logout,clearDossier,loadUser})(Nabar);

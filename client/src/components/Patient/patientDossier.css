@@ -1,21 +1,25 @@
-.iddossier{
+/* .iddossier{
     color: violet;
-}
-.DossierMEdical{
+} */
+#DossierMEdical{
     min-height: 100vh;
     width: 100vw;
     padding-top: 44px;
-    background-color: #0596de;
+    background-color: #ffffff;
+    display: flex;;
     display: flex;
     flex-direction: column;
     align-items: center;
+    margin-top: 77px;
 
 }
-.containerPatient{
-    background-color: #c3b9b9;
-    padding: 52px;
+#containerDossierPatient {
+  background-color: #ddd5d5;
+  border-radius: 17px;
+  padding: 52px;
+  box-shadow: 0px 9px 45px 0px rgba(0,0,0,0.5);
 }
-.containerPatient{
+#containerPatient{
     width: 90%;
     padding: 30px;
 }
@@ -25,3 +29,154 @@
 .tab{
     padding-top:20px;
 }
+.btAjouter{
+    width: 100px;
+    padding-top: 11px;
+    margin-left: 36px;
+    
+}
+
+
+.AjouterBox{
+    display: flex;
+    margin: auto;
+}
+
+/* SELECTbox */
+body {
+    margin: 0;
+    padding: 0;
+    /* background-color: #004882; */
+  }
+  
+  .box {
+    position: relative;
+    /* top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%); */
+  }
+  
+  .box select {
+    background-color: #2787d5;
+    color: white;
+    padding: 7px;
+    width: 234px;
+    border: none;
+    font-size: 17px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+    /* -webkit-appearance: button;
+    appearance: button; */
+    outline: none;
+  }
+  
+  .box::before {
+    content: "\f13a";
+    font-family: FontAwesome;
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 16%;
+    height: 93%;
+    text-align: center;
+    font-size: 20px;
+    line-height: 35px;
+    color: rgba(255, 255, 255, 0.5);
+    background-color: #0563af;
+    pointer-events: none;
+  }
+  
+  .box:hover::before {
+    color: rgba(255, 255, 255, 0.6);
+    background-color: #0563af  ;
+  }
+  
+  .box select option {
+    padding: 30px;
+  }
+
+/* buttonADD */
+.addbox{
+    margin-left: 10px; 
+}
+
+.icon-btn {
+    width: 49px;
+    height: 37px;
+    border: 1px solid #cdcdcd;
+    background: white;
+    border-radius: 57px;
+    overflow: hidden;
+    position: relative;
+    transition: width 0.2s ease-in-out;
+  }
+  .add-btn:hover {
+    width: 120px;
+  }
+  .add-btn::before,
+  .add-btn::after {
+    transition: width 0.2s ease-in-out, border-radius 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 4px;
+    width: 8px;
+    top: calc(51% - 2px);
+    background: red;
+}
+  .add-btn::after {
+    right: 14px;
+    overflow: hidden;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  .add-btn::before {
+    left: 14px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  .icon-btn:focus {
+    outline: none;
+  }
+  .btn-txt {
+    opacity: 0;
+    transition: opacity 0.2s;
+  }
+  .add-btn:hover::before,
+  .add-btn:hover::after {
+    width: 4px;
+    border-radius: 2px;
+  }
+  .add-btn:hover .btn-txt {
+    opacity: 1;
+  }
+  .add-icon::after,
+  .add-icon::before {
+    transition: all 0.2s ease-in-out;
+    content: "";
+    position: absolute;
+    height: 17px;
+    width: 2px;
+    top: calc(50% - 8px);
+    background: red;
+    overflow: hidden;
+  }
+  .add-icon::before {
+    left: 22px;
+    border-top-left-radius: 2px;
+    border-bottom-left-radius: 2px;
+  }
+  .add-icon::after {
+    right: 22px;
+    border-top-right-radius: 2px;
+    border-bottom-right-radius: 2px;
+  }
+  .add-btn:hover .add-icon::before {
+    left: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+  }
+  .add-btn:hover .add-icon::after {
+    right: 15px;
+    height: 4px;
+    top: calc(50% - 2px);
+  }
+  

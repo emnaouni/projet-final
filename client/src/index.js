@@ -18,6 +18,8 @@ import HomeMedecin from './components/Home/medecin/HomeMedecin';
 import PatientDossier from './components/Patient/PatientDossier';
 import Timer from './components/timer/Timer'
 import PrivateRoute from './components/PrivateRoute'
+import PrivateRouteMedecin from './components/PrivateRouteMedecin';
+import loginPatient from './components/Patient/loginPatient';
 
 ReactDOM.render(
     <Provider store={store}>
@@ -26,15 +28,17 @@ ReactDOM.render(
     <PrivateRoute exact path="/Admin" component={Admin} />
     <Route exact path="/search/:Nom/:adress/:spec" component={Medecin}/>
     <Route exact path="/" component={Home}/>
-    <Route exact path='/Login/:role' component={Compte}/>
+    <Route exact path='/Login/:medecin' component={Compte}/>
+    <Route exact path='/Login/patient/:patient' component={loginPatient}/>
+
     <Route exact path='/Admin/Login' component={LogAdmin}/>
 
     {/* <Route exact path="/Register" component={Register}/>
     <Route exact path="/personne/medecin" component={Medecin}/> */}
     <Route exact path='/timer' component={Timer}/>
     <Route exact path="/Register/medecin" component={Register}/>
-    <Route exact path="/Register/patient" component={RegisterPatient}/>
-    <Route exact path="/homeMedecin" component={HomeMedecin}/>
+    <Route exact path="/Register/patient/patient" component={RegisterPatient}/>
+    <PrivateRouteMedecin exact path="/homeMedecin" component={HomeMedecin}/>
     <Route exact path="/dossiermedical/:CIN" component={PatientDossier}/>
 
     

@@ -1,5 +1,5 @@
 import axios from "axios"
-import { ADD_DOSSIER, ERROR_DOSSIER,GET_DOSSIER, CLEAR_DOSSIER} from './types'
+import { ADD_DOSSIER, ERROR_DOSSIER,GET_DOSSIER,UPDATE_MEDICAMENT, CLEAR_DOSSIER} from './types'
 
 
 export const addDossierMedical= () => dispatch => {
@@ -20,6 +20,17 @@ export const addDossierMedical= () => dispatch => {
     
 }
 
+export const UpdatDossierMedicament= (id, medicament) => dispatch => {
+    return axios
+      .put(`/dossiermedical/dossierMedicament/${id}`, medicament)
+      .then(res =>
+        dispatch({ 
+            type: UPDATE_MEDICAMENT,
+            payload: res.data
+        })
+      );
+  };
+
 
 export const GetDossierMedicalPatient= (id) => dispatch => {
     axios.get(`/dossiermedical/patient/${id}`)
@@ -39,3 +50,4 @@ export const clearDossier = () => dispatch => {
         type: CLEAR_DOSSIER
     })
 }
+

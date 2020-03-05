@@ -1,4 +1,4 @@
-import { ADD_DOSSIER, ERROR_DOSSIER, GET_DOSSIER, CLEAR_DOSSIER } from "../actions/types";
+import { ADD_DOSSIER, ERROR_DOSSIER, GET_DOSSIER, CLEAR_DOSSIER, UPDATE_MEDICAMENT } from "../actions/types";
 const initialState = {
   dossiermedical: {},
   saved: null,
@@ -15,6 +15,11 @@ const DossierReducer = (state = initialState, action) => {
       return {
         ...state,
         dossiermedical: action.payload
+      }
+      case UPDATE_MEDICAMENT:
+      return {
+        ...state,
+        dossiermedical: action.payload ,saved:true
       }
     case ERROR_DOSSIER:
       return {

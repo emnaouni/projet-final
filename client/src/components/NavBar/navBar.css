@@ -21,11 +21,11 @@ a {
     -webkit-transition: background-color 300ms ease;
     transition: background-color 300ms ease;
 }
-
-.nav-colored {   background-color: #32afff; }
-nav-blanc {
+.nav-blanc {
     background-color: #32afff!important;
 }
+.nav-colored {   background-color: #32afff!important; }
+
 /* .nav-transparent { background-color:transparent;} */
 /* .navbar-brand{
     margin: 0 !important;
