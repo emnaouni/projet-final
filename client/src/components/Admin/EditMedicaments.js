@@ -32,7 +32,7 @@ componentDidMount(){
   render() {
     return (
       <div >
-        <button variant="primary" onClick={this.handleShow}>
+        <button  onClick={this.handleShow}>
         <i className="fa fa-edit"></i>
         </button>
 
@@ -49,10 +49,10 @@ componentDidMount(){
             </div>
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={this.handleShow}>
+            <Button  onClick={this.handleShow}>
               Close
             </Button>
-            <Button onClick={this.edit} variant="primary" >
+            <Button onClick={this.edit}  >
               Edit Medicament
             </Button>
           </Modal.Footer>

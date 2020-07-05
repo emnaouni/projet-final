@@ -10,7 +10,6 @@
     margin-top: 110px;
 }
 .boxLogin ,.personLog{
-        /* font-size: x-large; */
         font-family: 'Comfortaa',monospace;
         font-weight: bolder;
         padding-top: 15px;
@@ -37,7 +36,6 @@
 }
  body {
 	 min-height: 100vh;
-	 /* font-family: 'Raleway', sans-serif; */
 }
  .container {
 	 position: absolute;

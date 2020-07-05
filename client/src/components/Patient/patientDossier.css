@@ -42,18 +42,14 @@
     margin: auto;
 }
 
-/* SELECTbox */
 body {
     margin: 0;
     padding: 0;
-    /* background-color: #004882; */
   }
   
   .box {
     position: relative;
-    /* top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); */
+    
   }
   
   .box select {
@@ -64,8 +60,7 @@ body {
     border: none;
     font-size: 17px;
     box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
-    /* -webkit-appearance: button;
-    appearance: button; */
+    
     outline: none;
   }
   
@@ -94,7 +89,6 @@ body {
     padding: 30px;
   }
 
-/* buttonADD */
 .addbox{
     margin-left: 10px; 
 }

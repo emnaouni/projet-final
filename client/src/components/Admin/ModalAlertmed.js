@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import Modal from 'react-awesome-modal';
 import { connect } from 'react-redux';
 import { deletemedecins } from "../../actions/medicinActions"
+import './Admin.css';
 
  
 class ModalAlertmed extends Component {

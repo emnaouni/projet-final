@@ -5,12 +5,10 @@
 }
     .HowDoes{
         text-align: center;
-        /* text-transform: uppercase; */
         color: rgb(12, 12, 12);
         font-size: 42px;
         margin-top: 68px;
         margin-bottom: 74px;
-        /* font-family: "dokregular"; */
     }
 
     .boxs{
